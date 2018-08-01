@@ -1,0 +1,14 @@
+{	
+	"WltpInfoQuery":{
+		"Client":"B2B Actor Name",
+		"Brand":"P",
+		"Country":"FR",
+		"Lcdvs":{
+			"Lcdv":{
+				"Version16":"1PT9C5PMA1B0BUD0",
+		  		"TrimExtInt":"M09V8DFR",
+		  		"Options":["LA05","QK02Z","VD10","YD01E", "YR07","ZHJI","ZV47"],
+		  	}
+		}
+	}
+}

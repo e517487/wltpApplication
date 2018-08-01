@@ -1,0 +1,354 @@
+[	
+	"Lcdv":{
+		"Version16":"1PT9C5PMA1B0BUD0",
+		"TrimExtInt":"M09V8DFR",
+		"Options": ["LA05","QK02Z","VD10","YD01E","YR07","ZHJI","ZV47"],
+		"StatusResponse":{
+			"code": "0",
+			"label": "OK"
+			},
+		"WltpInfo":{
+			"status":{
+					"code":"0",
+					"label":"OK"
+					},
+			"phase":
+			[
+				{
+					"code": "HIGH",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "4.3"
+						},
+						{
+							"code": "CO2",
+							"value": "113"
+						}
+					]
+				},
+				{
+					"code": "LOW",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "5.8"
+						},
+						{
+							"code": "CO2",
+							"value": "153"
+						}
+					]
+				},
+				{
+					"code": "EHIGH",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "5.2"
+						},
+						{
+							"code": "CO2",
+							"value": "136"
+						}
+					]
+				},
+				{
+					"code": "MID",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "4.8"
+						},
+						{
+							"code": "CO2",
+							"value": "126"
+						}
+					]
+				},
+				{
+					"code": "COMB",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "4.9"
+						},
+						{
+							"code": "CO2",
+							"value": "129"
+						}
+					]
+				}
+			]
+		}
+	},
+	"Lcdv":{
+		"Version16":"1PT9C5PMA1B0BUD2",
+		"TrimExtInt":"M09V8DFR",
+		"Options": ["LA05","QK02Z","VD10","YD01E", "YR07","ZHJI","ZV47"],
+		"StatusResponse":{
+			"code": "0",
+			"label": "OK"
+			},
+		"WltpInfo":{
+			"status":{
+					"code":"0",
+					"label":"OK"
+					},
+			"phase":
+			[
+				{
+					"code": "HIGH",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "4.3"
+						},
+						{
+							"code": "CO2",
+							"value": "113"
+						}
+					]
+				},
+				{
+					"code": "LOW",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "5.8"
+						},
+						{
+							"code": "CO2",
+							"value": "153"
+						}
+					]
+				},
+				{
+					"code": "EHIGH",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "5.2"
+						},
+						{
+							"code": "CO2",
+							"value": "136"
+						}
+					]
+				},
+				{
+					"code": "MID",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "4.8"
+						},
+						{
+							"code": "CO2",
+							"value": "126"
+						}
+					]
+				},
+				{
+					"code": "COMB",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "4.9"
+						},
+						{
+							"code": "CO2",
+							"value": "129"
+						}
+					]
+				}
+			]
+		}
+	},
+	"Lcdv":{
+		"Version16":"1PT9C5PMA1B0BUD3",
+		"TrimExtInt":"M09V8DFR",
+		"Options": ["LA05","QK02Z","VD10","YD01E", "YR07","ZHJI","ZV47"],
+		"StatusResponse":{
+			"code": "0",
+			"label": "OK"
+			},
+		"WltpInfo":{
+			"status":{
+					"code":"0",
+					"label":"OK"
+					},
+			"phase":
+			[
+				{
+					"code": "HIGH",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "4.3"
+						},
+						{
+							"code": "CO2",
+							"value": "113"
+						}
+					]
+				},
+				{
+					"code": "LOW",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "5.8"
+						},
+						{
+							"code": "CO2",
+							"value": "153"
+						}
+					]
+				},
+				{
+					"code": "EHIGH",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "5.2"
+						},
+						{
+							"code": "CO2",
+							"value": "136"
+						}
+					]
+				},
+				{
+					"code": "MID",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "4.8"
+						},
+						{
+							"code": "CO2",
+							"value": "126"
+						}
+					]
+				},
+				{
+					"code": "COMB",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "4.9"
+						},
+						{
+							"code": "CO2",
+							"value": "129"
+						}
+					]
+				}
+			]
+		}
+	},
+	"Lcdv":{
+		"Version16":"1PT9C5PMA1B0BUD5",
+		"TrimExtInt":"M09V8DFR",
+		"Options": ["LA05","QK02Z","VD10","YD01E", "YR07","ZHJI","ZV47"],
+		"StatusResponse":{
+			"code": "0",
+			"label": "OK"
+			},
+		"WltpInfo":{
+			"status":{
+					"code":"0",
+					"label":"OK"
+					},
+			"phase":
+			[
+				{
+					"code": "HIGH",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "4.3"
+						},
+						{
+							"code": "CO2",
+							"value": "113"
+						}
+					]
+				},
+				{
+					"code": "LOW",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "5.8"
+						},
+						{
+							"code": "CO2",
+							"value": "153"
+						}
+					]
+				},
+				{
+					"code": "EHIGH",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "5.2"
+						},
+						{
+							"code": "CO2",
+							"value": "136"
+						}
+					]
+				},
+				{
+					"code": "MID",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "4.8"
+						},
+						{
+							"code": "CO2",
+							"value": "126"
+						}
+					]
+				},
+				{
+					"code": "COMB",
+					"result":
+					[
+						{
+							"code": "FC",
+							"value": "4.9"
+						},
+						{
+							"code": "CO2",
+							"value": "129"
+						}
+					]
+				}
+			]
+		}
+	}
+]	
