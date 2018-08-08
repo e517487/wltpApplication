@@ -1,6 +1,6 @@
 package com.inetpsa.pct00.application.service;
 
-import com.inetpsa.pct00.application.service.wltp.*;
+import Config.wsdl.*;
 import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,14 +12,14 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 @Service
-public class WLTPInfoClient extends WebServiceGatewaySupport{
+public class WLTPInfoClient extends WebServiceGatewaySupport {
 
     private final Logger log = LoggerFactory.getLogger(WLTPInfoClient.class);
 
     private ObjectFactory objectFactory;
 
 
-    public WLTPInfoClient( ) {
+    public WLTPInfoClient() {
 
         objectFactory = new ObjectFactory();
     }
@@ -27,11 +27,10 @@ public class WLTPInfoClient extends WebServiceGatewaySupport{
 
     /**
      * Do a REST API call to get information for  WLTP Info's.
-     *
+     * <p>
      * url
-     *
      */
-    public ConfigResponseTypeV2 getWltpConfigV2(  ) {
+    public ConfigResponseTypeV2 getWltpConfigV2() {
 
         XMLGregorianCalendar date = new XMLGregorianCalendarImpl();
         date.setYear(2018);
@@ -75,14 +74,17 @@ public class WLTPInfoClient extends WebServiceGatewaySupport{
         configType.setContextRequest(contextRequest);
 
         //nu kijken of er iets te halen valt:
-        ConfigResponseTypeV2 configResponseTypeV2 = (ConfigResponseTypeV2)getWebServiceTemplate()
-                .marshalSendAndReceive("https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14"
-                        ,configV2
-                        ,new SoapActionCallback("http://spring.io/guides/gs-producing-web-service/GetCountryRequest"));
+        ConfigResponseTypeV2 configResponseTypeV2;
+//        configResponseTypeV2 = (ConfigResponseTypeV2) getWebServiceTemplate()
+//                .marshalSendAndReceive("https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14"
+//                        , configV2
+//                        , new SoapActionCallback("http://spring.io/guides/gs-producing-web-service/GetCountryRequest"));
 
-        ////            ConfigFeatureResponseType configFeatureResponseType = configHttpPort.configFeature(configFeature);
-//            System.out.println( "Version: " + configResponseTypeV2.getVersion());
-            System.out.println( "Version: " + configResponseTypeV2.getVersion());
+        configResponseTypeV2 = (ConfigResponseTypeV2) getWebServiceTemplate()
+                .marshalSendAndReceive("https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14"
+                        , configV2
+                ,new SoapActionCallback(""));
+        System.out.println("Version: " + configResponseTypeV2.getVersion());
 /*        ConfigResponseTypeV2 configResponseTypeV2 = (ConfigResponseTypeV2) getWebServiceTemplate()
                 .marshalSendAndReceive("http://localhost:8080/ws/countries", request,
                         new SoapActionCallback(
@@ -106,7 +108,6 @@ public class WLTPInfoClient extends WebServiceGatewaySupport{
 
         return configResponseTypeV2;
     }
-
 
 
 }

@@ -1003,7 +1003,26 @@
          </ns1:Config>
       </ConfigV2>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:username/><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="4f5ce962-a161-48ae-b12a-b230f0e26240" name="Project 1 TestSuite 1"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:runType>SEQUENTIAL</con:runType><con:testCase id="ced3aedb-7fe5-4654-935c-81d67f6ee9d0" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="ConfigHttpBinding-Config Request TestCase" searchProperties="true" timeout="0" maxResults="0"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="request" id="833e57a5-f397-45a6-b021-56ef68073738" name="Config Request"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>Config</con:operation><con:request name="Config Request" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="ae889cb4-8a35-4a1d-9e89-ce1eb7ad5608"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="com.eviware.soapui.support.editor.views.xml.form2.FormEditorView@ViewType">All</con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://wssoap.inetpsa.com/cfg/config/v1?client_id=bd896111-cf8f-4c55-9cc3-eda7fdba06b8</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">
+</soapenv:Envelope>]]></con:request><con:credentials><con:username/><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="4f5ce962-a161-48ae-b12a-b230f0e26240" name="Project 1 TestSuite 1"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:runType>SEQUENTIAL</con:runType><con:testCase id="ced3aedb-7fe5-4654-935c-81d67f6ee9d0" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="ConfigHttpBinding-Config Request TestCase" searchProperties="true" timeout="0" maxResults="0"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="request" id="833e57a5-f397-45a6-b021-56ef68073738" name="Config Request"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>Config</con:operation><con:request name="Config Request" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="ae889cb4-8a35-4a1d-9e89-ce1eb7ad5608"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="com.eviware.soapui.support.editor.views.xml.form2.FormEditorView@ViewType">All</con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sel="http://xml.inetpsa.com/Services/Cfg/Select" xmlns:cfg="http://inetpsa.com/cfg">
+    <soapenv:Header/>
+   <soapenv:Body>
+      <sel:Config>
+         <Config xmlns="http://inetpsa.com/cfg">
+    <ContextRequest>
+        <Client>websimulator</Client>
+        <Brand>P</Brand>
+        <Country>NL</Country>
+        <Date>2018-08-08</Date>
+        <TaxIncluded>true</TaxIncluded>
+                </ContextRequest>
+                <ConfigCriteria>
+        <Version>1PB1A5FRDPB0A050</Version>
+                </ConfigCriteria>
+                </Config>
+      </sel:Config>
+   </soapenv:Body>
+</soapenv:Envelope>
+]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#Config"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="2759172e-2094-4be6-b5cf-649159034882" name="Config Request different client key prod"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>Config</con:operation><con:request name="Config Request different client key prod" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="ae889cb4-8a35-4a1d-9e89-ce1eb7ad5608"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="com.eviware.soapui.support.editor.views.xml.form2.FormEditorView@ViewType">All</con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/select/v1?client_id=ffd16c30-c9e9-4a35-8ff0-0a527cdfdf1f</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">
    <soapenv:Header/>
    <soapenv:Body>
       <con:Config>
@@ -1061,53 +1080,65 @@
          </cfg:Config>
       </con:Config>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#Config"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="2759172e-2094-4be6-b5cf-649159034882" name="Config Request different client key prod"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>Config</con:operation><con:request name="Config Request different client key prod" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="ae889cb4-8a35-4a1d-9e89-ce1eb7ad5608"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="com.eviware.soapui.support.editor.views.xml.form2.FormEditorView@ViewType">All</con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#Config"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="1418fbbd-85d4-4770-820e-d06ff963094d" name="Config Request no client key preprod"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>Config</con:operation><con:request name="Config Request no client key preprod" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="ae889cb4-8a35-4a1d-9e89-ce1eb7ad5608"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="com.eviware.soapui.support.editor.views.xml.form2.FormEditorView@ViewType">All</con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api-basic-preprod.groupe-psa.com/applications/moteur-de-configuration-vn/select/v1?client_id=</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">
    <soapenv:Header/>
    <soapenv:Body>
       <con:Config>
-        <Config xmlns="http://inetpsa.com/cfg">
-    <ContextRequest>
-        <Client>websimulator</Client>
-        <Brand>P</Brand>
-        <Country>NL</Country>
-        <Date>2018-08-08</Date>
-        <Network>false</Network>
-        <TaxIncluded>true</TaxIncluded>
-        <LocalCurrency>false</LocalCurrency>
-        <ShowUnavailableLooks>false</ShowUnavailableLooks>
-        <ShowUnavailableOptionalFeatures>false</ShowUnavailableOptionalFeatures>
-    </ContextRequest>
-    <ConfigCriteria>
-        <Version>1PI4SYHKDKB0A0G0</Version>
-    </ConfigCriteria>
-</Config>
+         <cfg:Config>
+            <cfg:ContextRequest>
+               <cfg:Client>Brandwidth</cfg:Client>
+               <cfg:Brand>P</cfg:Brand>
+               <cfg:Country>NL</cfg:Country>
+               <!--You have a CHOICE of the next 2 items at this level-->
+               <cfg:Date>2018-07-31</cfg:Date>
+               <cfg:TariffCode>?</cfg:TariffCode>
+               <!--Optional:-->
+               <cfg:LanguageID>?</cfg:LanguageID>
+               <!--Optional:-->
+               <cfg:Network>false</cfg:Network>
+               <!--You have a CHOICE of the next 3 items at this level-->
+               <cfg:TaxIncluded>true</cfg:TaxIncluded>
+               <cfg:ShowBothPrices>false</cfg:ShowBothPrices>
+               <cfg:ProfessionalUse>false</cfg:ProfessionalUse>
+               <!--Optional:-->
+               <cfg:ShowMRIP>false</cfg:ShowMRIP>
+               <!--Optional:-->
+               <cfg:ShowBonusMalus>false</cfg:ShowBonusMalus>
+               <!--Optional:-->
+               <cfg:TariffZone>?</cfg:TariffZone>
+               <!--Optional:-->
+               <cfg:LocalCurrency>false</cfg:LocalCurrency>
+               <!--Optional:-->
+               <cfg:ShowUnavailableLooks>true</cfg:ShowUnavailableLooks>
+               <!--Optional:-->
+               <cfg:ShowUnavailableOptionalFeatures>false</cfg:ShowUnavailableOptionalFeatures>
+               <!--Optional:-->
+               <cfg:ShowStatus>false</cfg:ShowStatus>
+               <!--Optional:-->
+               <cfg:GeosStatus>?</cfg:GeosStatus>
+               <!--Optional:-->
+               <cfg:ShowEcommerce>false</cfg:ShowEcommerce>
+            </cfg:ContextRequest>
+            <cfg:ConfigCriteria>
+               <cfg:Version>1PIAA3TCQJB0A0G3</cfg:Version>
+               <!--Optional:-->
+               <cfg:WLTP>
+                  <cfg:FlagWLTP>true</cfg:FlagWLTP>
+                  <!--Optional:-->
+                  <cfg:DateWLTP>?</cfg:DateWLTP>
+                  <cfg:PhaseWLTP>FULL</cfg:PhaseWLTP>
+                  <!--Optional:-->
+                  <cfg:FactoryWLTP>?</cfg:FactoryWLTP>
+               </cfg:WLTP>
+               <!--Zero or more repetitions:-->
+               <cfg:Feature>
+                  <cfg:id>?</cfg:id>
+               </cfg:Feature>
+            </cfg:ConfigCriteria>
+         </cfg:Config>
       </con:Config>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#Config"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="1418fbbd-85d4-4770-820e-d06ff963094d" name="Config Request no client key preprod"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>Config</con:operation><con:request name="Config Request no client key preprod" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="ae889cb4-8a35-4a1d-9e89-ce1eb7ad5608"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="com.eviware.soapui.support.editor.views.xml.form2.FormEditorView@ViewType">All</con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <con:Config>
-<!--         <cfg:Config>-->
-            <Config xmlns="http://inetpsa.com/cfg">
-    <ContextRequest>
-        <Client>websimulator</Client>
-        <Brand>P</Brand>
-        <Country>NL</Country>
-        <Date>2018-08-08</Date>
-        <Network>false</Network>
-        <TaxIncluded>true</TaxIncluded>
-        <LocalCurrency>false</LocalCurrency>
-        <ShowUnavailableLooks>false</ShowUnavailableLooks>
-        <ShowUnavailableOptionalFeatures>false</ShowUnavailableOptionalFeatures>
-    </ContextRequest>
-    <ConfigCriteria>
-        <Version>1PI4SYHKDKB0A0G0</Version>
-    </ConfigCriteria>
-</Config>
-<!--         </cfg:Config>-->
-      </con:Config>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#Config"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="e11e0423-afb2-411c-9649-40652e2fcab8" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="ConfigHttpBinding-ConfigFeature-ConfigFeature Request TestCase" searchProperties="true" timeout="0" maxResults="0"><con:settings/><con:testStep type="request" id="252d655f-3bfd-420d-b78a-179bd12fe2a6" name="ConfigFeature ConfigFeature Request"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>ConfigFeature</con:operation><con:request name="ConfigFeature ConfigFeature Request" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d4bd9f4b-7f08-4c65-9697-44898cf4a4bb"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cfg00Web/services/Config</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#Config"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="e11e0423-afb2-411c-9649-40652e2fcab8" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="ConfigHttpBinding-ConfigFeature-ConfigFeature Request TestCase" searchProperties="true" timeout="0" maxResults="0"><con:settings/><con:testStep type="request" id="252d655f-3bfd-420d-b78a-179bd12fe2a6" name="ConfigFeature ConfigFeature Request"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>ConfigFeature</con:operation><con:request name="ConfigFeature ConfigFeature Request" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d4bd9f4b-7f08-4c65-9697-44898cf4a4bb"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cfg00Web/services/Config</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <con:ConfigFeature>\r
@@ -1299,22 +1330,7 @@
          </cfg:Config>
       </con:ConfigV2>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Inherit From Service</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/><con:wsrmConfig version="1.2" offerEndpoint="http://wssoap.inetpsa.com/cfg"/></con:request></con:config></con:testStep><con:testStep type="request" id="03234d8e-67ee-44f5-9de6-4fbf10abcb19" name="ConfigV2 Request different client key"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>ConfigV2</con:operation><con:request name="ConfigV2 Request different client key" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" id="7b4b7240-1a2a-43ce-9a86-2162f813bd79"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=ffd16c30-c9e9-4a35-8ff0-0a527cdfdf1f</con:endpoint><con:request><![CDATA[<Config xmlns="http://inetpsa.com/cfg">
-    <ContextRequest>
-        <Client>websimulator</Client>
-        <Brand>P</Brand>
-        <Country>NL</Country>
-        <Date>2018-08-08</Date>
-        <Network>false</Network>
-        <TaxIncluded>true</TaxIncluded>
-        <LocalCurrency>false</LocalCurrency>
-        <ShowUnavailableLooks>false</ShowUnavailableLooks>
-        <ShowUnavailableOptionalFeatures>false</ShowUnavailableOptionalFeatures>
-    </ContextRequest>
-    <ConfigCriteria>
-        <Version>1PI4SYHKDKB0A0G0</Version>
-    </ConfigCriteria>
-</Config>]]></con:request><con:credentials><con:selectedAuthProfile>Inherit From Service</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/><con:wsrmConfig version="1.2" offerEndpoint="http://wssoap.inetpsa.com/cfg"/></con:request></con:config></con:testStep><con:testStep type="request" id="09a65461-5e5c-48e2-b6cb-7a05ff1dacf4" name="ConfigV2 Request - trail and error fase"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>ConfigV2</con:operation><con:request name="ConfigV2 Request - trail and error fase" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" id="7b4b7240-1a2a-43ce-9a86-2162f813bd79"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cfg00Web/services/Config</con:endpoint><con:request><![CDATA[<soapenv:Envelope 
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Inherit From Service</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/><con:wsrmConfig version="1.2" offerEndpoint="http://wssoap.inetpsa.com/cfg"/></con:request></con:config></con:testStep><con:testStep type="request" id="03234d8e-67ee-44f5-9de6-4fbf10abcb19" name="ConfigV2 Request different client key"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>ConfigV2</con:operation><con:request name="ConfigV2 Request different client key" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" id="7b4b7240-1a2a-43ce-9a86-2162f813bd79"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14</con:endpoint><con:request><![CDATA[<soapenv:Envelope 
        xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
        xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -1347,7 +1363,28 @@
       </ConfigV2>
    </soapenv:Body>
 </soapenv:Envelope>
-]]></con:request><con:credentials><con:selectedAuthProfile>Inherit From Service</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/><con:wsrmConfig version="1.2" offerEndpoint="http://wssoap.inetpsa.com/cfg"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:savedRecentRuns>1</con:savedRecentRuns><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:jmsConnectionContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:reporting><con:reportTemplates/><con:xmlTemplates/><con:xmlTemplates/><con:parameters/><con:parameters/></con:reporting><con:reporting/><con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest"><con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+]]></con:request><con:credentials><con:selectedAuthProfile>Inherit From Service</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/><con:wsrmConfig version="1.2" offerEndpoint="http://wssoap.inetpsa.com/cfg"/></con:request></con:config></con:testStep><con:testStep type="request" id="09a65461-5e5c-48e2-b6cb-7a05ff1dacf4" name="Select Request - xml works"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>ConfigV2</con:operation><con:request name="Select Request - xml works" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" id="7b4b7240-1a2a-43ce-9a86-2162f813bd79"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://preprod.api.inetpsa.com/applications/moteur-de-configuration-vn/select/v1?client_id=bd896111-cf8f-4c55-9cc3-eda7fdba06b8</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sel="http://xml.inetpsa.com/Services/Cfg/Select" xmlns:cfg="http://inetpsa.com/cfg">
+    <soapenv:Header/>
+   <soapenv:Body>
+      <sel:Select>
+         <Select xmlns="http://inetpsa.com/cfg">
+            <ContextRequest>
+               <Client>TestJan</Client>
+               <Brand>P</Brand>
+               <Country>NL</Country>
+               <Date>2018-08-01</Date>
+               <Network>false</Network>
+               <TaxIncluded>true</TaxIncluded>
+               <LocalCurrency>true</LocalCurrency>
+               <ShowAllVersions>false</ShowAllVersions>
+            </ContextRequest>
+            <SelectCriteria>
+               <VehicleUse/>
+            </SelectCriteria>
+         </Select>
+      </sel:Select>
+   <con:ConfigV2 xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config"/></soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Inherit From Service</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/><con:wsrmConfig version="1.2" offerEndpoint="http://wssoap.inetpsa.com/cfg"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:savedRecentRuns>1</con:savedRecentRuns><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:jmsConnectionContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:reporting><con:reportTemplates/><con:xmlTemplates/><con:xmlTemplates/><con:parameters/><con:parameters/></con:reporting><con:reporting/><con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest"><con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
 // This code is often used for adding custom authentication to SoapUI Pro tests
 
 // If hardcoding the token, uncomment and change line 5

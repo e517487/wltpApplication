@@ -58,7 +58,7 @@
                         </schema>
                     </schemas>-->
                     <!--<schemaDirectory>${project.basedir}/src/main/resources/wsdl</schemaDirectory>-->
-                    <schemaDirectory>${project.basedir}/</schemaDirectory>
+                    <schemaDirectory>${project.basedir}/src/main/resources/wsdl</schemaDirectory>
                     <schemaIncludes>
                         <include>*.wsdl</include>
                     </schemaIncludes>

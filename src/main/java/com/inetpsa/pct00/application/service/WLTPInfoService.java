@@ -1,13 +1,9 @@
 package com.inetpsa.pct00.application.service;
 
-import com.inetpsa.pct00.application.service.wltp.Config;
-import com.inetpsa.pct00.application.service.wltp.ConfigResponse;
-import com.inetpsa.pct00.application.service.wltp.ConfigType;
-import com.inetpsa.pct00.application.service.wltp.ObjectFactory;
+import Config.wsdl.ObjectFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 
 
 @Service
