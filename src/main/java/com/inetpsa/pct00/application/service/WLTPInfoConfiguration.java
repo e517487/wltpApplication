@@ -20,7 +20,8 @@ public class WLTPInfoConfiguration {
     @Bean
     public WLTPInfoClient wltpInfoClient( Jaxb2Marshaller marshaller) {
         WLTPInfoClient wltpInfoClient = new WLTPInfoClient();
-        wltpInfoClient.setDefaultUri("");
+        wltpInfoClient.setDefaultUri("https://api.inetpsa.com/applications/moteur-de-configuration-vn/");
+//        wltpInfoClient.setDefaultUri("https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14");
         wltpInfoClient.setMarshaller( marshaller);
         wltpInfoClient.setUnmarshaller( marshaller);
 

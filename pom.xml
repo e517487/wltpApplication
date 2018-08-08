@@ -5,7 +5,7 @@
 
     <groupId>com.inetpsa.pct00.application</groupId>
     <artifactId>wltp-application</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <!--<packaging>war</packaging>-->
     <name>WLTP Application</name>
 
@@ -53,10 +53,10 @@
                     <generatePackage>Config.wsdl</generatePackage>
                     <!--<schemas>
                         <schema>
+                            <url>https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14</url>
                             <url>http://www.webservicex.com/stockquote.asmx?WSDL</url>
                         </schema>
-                    </schemas>
-					-->
+                    </schemas>-->
                     <!--<schemaDirectory>${project.basedir}/src/main/resources/wsdl</schemaDirectory>-->
                     <schemaDirectory>${project.basedir}/</schemaDirectory>
                     <schemaIncludes>
