@@ -1,0 +1,39 @@
+Is there not a list with all the stuf I need to have in order to do all the commuunications?
+1st   config.wdsl
+2nd  apparently select also neccesary think by the Excel you gave me also need you to provide me: CompareGrade Request & response, Engine criteria Request & response, LookCombinations Request & response, Staging Request & response, CompareVersions Request & response.
+3rd  are there more?
+4th What about the client_id?
+5th Which URL’s are there available? 
+6th you mentioned I need acces to APNL  & ACNL.   What are these APNL and ACNL???
+
+soapUI 5.3.0
+
+
+websimulator
+propod 
+brand 
+country 
+Env: Pub    previouw
+Env: PRod   final data
+server: VIP
+
+whit a car config: the XML
+
+Config.wsdl :  only this one is required for wltp information.
+urls to use: ACNL & APNL
+URLS in websimulator only from inside PSA. <-- not nessecary for us (ignore this)
+So use AP connect. 
+
+PREPROD
+https://preprod.api.inetpsa.com/applications/moteur-de-configuration-vn/select/v1?client_id=bd896111-cf8f-4c55-9cc3-eda7fdba06b8
+
+PROD
+https://api.inetpsa.com/applications/moteur-de-configuration-vn/select/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14
+urls no authorisation
+
+
+not all vehicles have wltp information.
+in websimulator enable config
+
+
+configV2 info given <Phase Code="COMB">    <-- this part is ment to be the total CO2 for car + options.

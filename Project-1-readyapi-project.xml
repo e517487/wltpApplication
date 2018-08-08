@@ -1,0 +1,1373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e72e860d-ac07-4438-8f8c-67a6f3bd5af5" created="2.4.0" activeEnvironment="Default environment" name="Project 1" resourceRoot="" updated="2.4.0 2018-06-08T12:50:23Z" abortOnError="false" runType="SEQUENTIAL" soapui-version="5.0.0" encryptionMode="Not encrypted" xmlns:con="http://eviware.com/soapui/config"><con:description>WLTP proof of concept </con:description><con:settings><con:setting id="Port">8081</con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" id="67a99079-21a5-41d2-851f-675c6a4b15d5" wsaVersion="NONE" name="ConfigHttpBinding" type="wsdl" bindingName="{http://xml.inetpsa.com/Services/Cfg/Config}ConfigHttpBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/PSA-Projects/wltpApplication/Config.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/C:/PSA-Projects/wltpApplication/Config.wsdl"><con:part><con:url>file:/C:/PSA-Projects/wltpApplication/Config.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cxl="http://fault.core.cxl.inetpsa.com" xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding" xmlns:tn="http://inetpsa.com/cfg" xmlns:tns="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://inetpsa.com/cfg">
+      <xs:element name="Config" type="tn:ConfigType"/>
+      <xs:element name="ConfigFeature" type="tn:ConfigFeatureType"/>
+      <xs:element name="ConfigResponse" type="tn:ConfigResponseType"/>
+      <xs:element name="ConfigResponseV2" type="tn:ConfigResponseTypeV2"/>
+      <xs:element name="ConfigFeatureResponse" type="tn:ConfigFeatureResponseType"/>
+      <xs:complexType name="ConfigType">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="ContextRequest" type="tn:ContextRequest"/>
+          <xs:element minOccurs="1" name="ConfigCriteria" type="tn:ConfigCriteria"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ConfigFeatureType">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="ContextRequest" type="tn:ContextRequest"/>
+          <xs:element minOccurs="1" name="ConfigCriteria" type="tn:ConfigCriteriaFeature"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ContextRequest">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="Client" type="xs:string"/>
+          <xs:element minOccurs="1" name="Brand">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:length value="1"/>
+                <xs:enumeration value="P"/>
+                <xs:enumeration value="C"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" name="Country" type="xs:string"/>
+          <xs:choice minOccurs="1">
+            <xs:element name="Date" type="xs:date"/>
+            <xs:element name="TariffCode" type="xs:string"/>
+          </xs:choice>
+          <xs:element maxOccurs="1" minOccurs="0" name="LanguageID" type="xs:string"/>
+          <!--minOccurs = "0", Network = false  {false = client final (config internet)-->
+          <!--maxOccurs = "1", Network = {false,true}-->
+          <xs:element default="false" maxOccurs="1" minOccurs="0" name="Network" type="xs:boolean"/>
+          <xs:choice maxOccurs="1" minOccurs="0">
+            <!--minOccurs = "0", TaxIncluded = true-->
+            <!--maxOccurs = "1", TaxIncluded = {false,true}-->
+            <xs:element default="true" name="TaxIncluded" type="xs:boolean"/>
+            <!--minOccurs = "0", ShowBothPrices = false-->
+            <!--maxOccurs = "1", ShowBothPrices = {false,true}-->
+            <xs:element default="false" name="ShowBothPrices" type="xs:boolean"/>
+            <!--minOccurs = "0", ProfessionalUse = false-->
+            <!--maxOccurs = "1", ProfessionalUse = {false,true}-->
+            <xs:element default="false" name="ProfessionalUse" type="xs:boolean"/>
+          </xs:choice>
+          <!--minOccurs = "0", ShowMRIP = false-->
+          <!--maxOccurs = "1", ShowMRIP = {false, true}-->
+          <xs:element default="false" maxOccurs="1" minOccurs="0" name="ShowMRIP" type="xs:boolean"/>
+          <!--minOccurs = "0", ShowBonusMalus = false-->
+          <!--maxOccurs = "1", ShowBonusMalus = {false, true}-->
+          <xs:element default="false" maxOccurs="1" minOccurs="0" name="ShowBonusMalus" type="xs:boolean"/>
+          <!--minOccurs = "0",  Default tariff zone-->
+          <!--maxOccurs = "1",  TariffZone-->
+          <xs:element maxOccurs="1" minOccurs="0" name="TariffZone" type="xs:string"/>
+          <!--minOccurs = "0", LocalCurrency = false-->
+          <!--maxOccurs = "1", LocalCurrency = true-->
+          <xs:element default="false" maxOccurs="1" minOccurs="0" name="LocalCurrency" type="xs:boolean"/>
+          <!--minOccurs = "0", ShowUnavailableLooks = false-->
+          <!--maxOccurs = "1", ShowUnavailableLooks = {false, true}-->
+          <xs:element default="true" maxOccurs="1" minOccurs="0" name="ShowUnavailableLooks" type="xs:boolean"/>
+          <!--minOccurs = "0", ShowUnavailableOptionalFeatures = true-->
+          <!--maxOccurs = "1", ShowUnavailableOptionalFeatures = {false, true}-->
+          <xs:element default="false" maxOccurs="1" minOccurs="0" name="ShowUnavailableOptionalFeatures" type="xs:boolean"/>
+          <xs:element default="false" maxOccurs="1" minOccurs="0" name="ShowStatus" type="xs:boolean"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="GeosStatus" type="xs:string"/>
+          <xs:element default="false" maxOccurs="1" minOccurs="0" name="ShowEcommerce" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ConfigCriteria">
+        <xs:sequence>
+          <xs:element maxOccurs="1" name="Version" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="WLTP" type="tn:WLTP"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Feature" type="tn:Feature"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Feature">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WLTP">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="FlagWLTP" type="xs:boolean"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="DateWLTP" type="xs:date"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="PhaseWLTP" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="FactoryWLTP" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ConfigCriteriaFeature">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" name="VehicleUse" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="Model" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="BodyStyle" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="GrBodyStyle" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Grade" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="GrCommercialName" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="TransmissionType" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="GrTransmissionType" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="GrTypeBoiteVitesse" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="GrNumberOfDoors" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="DerivedModels" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Engine" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="GrEngine" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Energy" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="EcoLabel" type="xs:boolean"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="EcoLabelText" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="1" name="Feature" type="tn:Feature"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ConfigResponseType">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="Version" type="tn:Version"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ConfigResponseTypeV2">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="Version" type="tn:VersionV2"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ConfigFeatureResponseType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Versions" type="tn:VersionV2"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType abstract="true" name="VersionAbstract">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="IdVersion" type="tn:Identification"/>
+          <xs:element minOccurs="0" name="Tariff" type="tn:Tariff"/>
+          <xs:element minOccurs="0" name="VehicleUse" type="tn:Identification"/>
+          <xs:element minOccurs="1" name="Model" type="tn:Identification"/>
+          <xs:element minOccurs="1" name="VehiclePrice" type="tn:Price"/>
+          <xs:element minOccurs="1" name="Price" type="tn:Price"/>
+          <xs:element minOccurs="1" name="FeaturesPrice" type="tn:Price"/>
+          <xs:element minOccurs="1" name="OptionalFeaturesPrice" type="tn:Price"/>
+          <xs:element minOccurs="1" name="LookFeaturesPrice" type="tn:Price"/>
+          <xs:element minOccurs="0" name="VehiclePriceTtc" type="tn:Price"/>
+          <xs:element minOccurs="0" name="PriceTtc" type="tn:Price"/>
+          <xs:element minOccurs="0" name="FeaturesPriceTtc" type="tn:Price"/>
+          <xs:element minOccurs="0" name="OptionalFeaturesPriceTtc" type="tn:Price"/>
+          <xs:element minOccurs="0" name="LookFeaturesPriceTtc" type="tn:Price"/>
+          <xs:element minOccurs="0" name="VehiclePriceMrip" type="tn:Price"/>
+          <xs:element minOccurs="0" name="PriceMrip" type="tn:Price"/>
+          <xs:element minOccurs="0" name="FeaturesPriceMrip" type="tn:Price"/>
+          <xs:element minOccurs="0" name="OptionalFeaturesPriceMrip" type="tn:Price"/>
+          <xs:element minOccurs="0" name="LookFeaturesPriceMrip" type="tn:Price"/>
+          <xs:element minOccurs="0" name="VehiclePriceMripTtc" type="tn:Price"/>
+          <xs:element minOccurs="0" name="PriceMripTtc" type="tn:Price"/>
+          <xs:element minOccurs="0" name="FeaturesPriceMripTtc" type="tn:Price"/>
+          <xs:element minOccurs="0" name="OptionalFeaturesPriceMripTtc" type="tn:Price"/>
+          <xs:element minOccurs="0" name="LookFeaturesPriceMripTtc" type="tn:Price"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="CommercialOffers" type="tn:CommercialOffers"/>
+          <xs:element minOccurs="0" name="Grade" type="tn:Identification"/>
+          <xs:element minOccurs="0" name="BodyStyle" type="tn:Identification"/>
+          <xs:element minOccurs="0" name="GrbodyStyle" type="tn:Identification"/>
+          <xs:element minOccurs="1" name="DesignClass" type="tn:Identification"/>
+          <xs:element minOccurs="1" name="CustomerType" type="tn:Identification"/>
+          <xs:element minOccurs="1" name="ModelYear" type="tn:Identification"/>
+          <xs:element minOccurs="1" name="ModelYearModification" type="tn:Identification"/>
+          <xs:element minOccurs="0" name="CommercialName" type="tn:Identification"/>
+          <xs:element minOccurs="0" name="GrCommercialName" type="tn:Identification"/>
+          <xs:element minOccurs="0" name="Engine" type="tn:Identification"/>
+          <xs:element minOccurs="0" name="GrEngine" type="tn:Identification"/>
+          <xs:element minOccurs="0" name="TransmissionType" type="tn:Identification"/>
+          <xs:element minOccurs="0" name="GrTransmissionType" type="tn:Identification"/>
+          <xs:element minOccurs="0" name="Energy" type="tn:Identification"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="Co2Rate" type="xs:float"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="Co2RateComplex" type="tn:TechCharComplex"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="Co2Class" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="EcoLabel" type="xs:boolean"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="MixedConsumption" type="xs:float"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="MixedConsumptionComplex" type="tn:TechCharComplex"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="UsefulIntLength" type="xs:float"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="UsefulIntLengthComplex" type="tn:TechCharComplex"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="UsefulIntHeight" type="xs:float"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="UsefulIntHeightComplex" type="tn:TechCharComplex"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="ExteriorLength" type="xs:float"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="ExteriorLengthComplex" type="tn:TechCharComplex"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="ExteriorHeight" type="xs:float"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="ExteriorHeightComplex" type="tn:TechCharComplex"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="TrunkVolume" type="xs:float"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="TrunkVolumeComplex" type="tn:TechCharComplex"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="PayloadVolume" type="xs:float"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="PayloadVolumeComplex" type="tn:TechCharComplex"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="UsefulTrayLength" type="xs:float"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="UsefulTrayLengthComplex" type="tn:TechCharComplex"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="NumSittedPlaces" type="xs:int"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="NumSittedPlacesComplex" type="tn:TechCharComplex"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="PayloadWeight" type="xs:float"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="PayloadWeightComplex" type="tn:TechCharComplex"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="BodyLength" type="xs:float"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="BodyLengthComplex" type="tn:TechCharComplex"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="Characteristic1" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="Characteristic2" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="Characteristic3" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="Characteristic4" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="ExtendedCode" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="VisualCode" type="xs:string"/>
+          <xs:element minOccurs="1" name="StandardFeatures" type="tn:StandardCategories"/>
+          <xs:element minOccurs="1" name="TechnicalCharacteristics" type="tn:TechnicalCharacteristicsCategories"/>
+          <xs:element minOccurs="1" name="OptionalFeatures" type="tn:OptionalFeaturesCategories"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Version">
+        <xs:complexContent>
+          <xs:extension base="tn:VersionAbstract">
+            <xs:sequence>
+              <xs:element name="LookFeatures" type="tn:LookFeatures"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="VersionV2">
+        <xs:complexContent>
+          <xs:extension base="tn:VersionAbstract">
+            <xs:sequence>
+              <xs:element name="LookFeatures" type="tn:LookFeaturesV2"/>
+              <xs:element maxOccurs="1" minOccurs="0" name="FlagWLTP" type="xs:boolean"/>
+              <xs:element maxOccurs="1" minOccurs="0" name="BaseVersion" type="xs:string"/>
+              <xs:element maxOccurs="1" minOccurs="0" name="WLTPCharacteristics" type="tn:WLTPCharacteristics"/>
+              <xs:element minOccurs="0" name="GrTypeBoiteVitesse" type="tn:Identification"/>
+              <xs:element minOccurs="0" name="GrNumberOfDoors" type="tn:Identification"/>
+              <xs:element minOccurs="0" name="GrBrand" type="tn:Identification"/>
+              <xs:element minOccurs="0" name="GrDistrBrand" type="tn:Identification"/>
+              <xs:element minOccurs="0" name="DerivedModels" type="tn:Identification"/>
+              <xs:element maxOccurs="1" minOccurs="0" name="EcoLabelText" type="xs:string"/>
+              <xs:element minOccurs="0" name="GrEcommerce" type="tn:Identification"/>
+              <!--<xs:element maxOccurs="1" minOccurs="0" name="Status" type="tn:GeosStatus"/>-->
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TechCharComplex">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" name="decimalValue" type="xs:float"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="stringValue" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LookFeatures">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="InteriorFeatures" type="tn:OptionalFeature"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="ExteriorFeatures" type="tn:OptionalFeature"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LookFeaturesV2">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="InteriorFeatures" type="tn:OptionalFeatureV2"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="ExteriorFeatures" type="tn:OptionalFeatureV2"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WLTPCharacteristics">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="Status" type="tn:Status"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="PhysResult" type="tn:PhysResult"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Phase" type="tn:Phase"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Status">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="Code" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="1" name="Desc" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GeosStatus">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="1" name="id" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PhysResult">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Result" type="tn:Result"/>
+        </xs:sequence>
+        <xs:attribute name="VehType" type="xs:string"/>
+        <xs:attribute name="Category" type="xs:string"/>
+        <xs:attribute name="Destination" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="Result">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" name="Code" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="Value" type="xs:decimal"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Phase">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="WLTPCharacteristic" type="tn:WLTPCharacteristic"/>
+        </xs:sequence>
+        <xs:attribute name="Code" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="WLTPCharacteristic">
+        <xs:sequence>
+          <xs:element maxOccurs="1" minOccurs="0" name="Id" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="Label" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="Value" type="xs:decimal"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OptionalFeaturesCategories">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Category" type="tn:OptionalFeatureCategory"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OptionalFeatureCategory">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:string"/>
+          <xs:element minOccurs="1" name="label" type="xs:string"/>
+          <xs:element minOccurs="1" name="rank" type="xs:int"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="OptionalFeatures" type="tn:OptionalFeature"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="OptionalPacks" type="tn:OptionalPack"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OptionalFeature">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:string"/>
+          <xs:element minOccurs="1" name="code" type="xs:string"/>
+          <xs:element minOccurs="1" name="rank" type="xs:int"/>
+          <xs:element minOccurs="1" name="classe" type="xs:string"/>
+          <xs:element minOccurs="1" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="1" name="Price" type="tn:Price"/>
+          <xs:element minOccurs="0" name="PriceTtc" type="tn:Price"/>
+          <xs:element minOccurs="0" name="PriceMrip" type="tn:Price"/>
+          <xs:element minOccurs="0" name="PriceMripTtc" type="tn:Price"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="CommercialOffers" type="tn:CommercialOffers"/>
+          <xs:element minOccurs="1" name="assembly" type="xs:int"/>
+          <!--selection = 'user' => Sélectionné par le user-->
+          <!--selection = 'auto' => Sélectionné automatiquement-->
+          <!--selection = 'no'   => non sélectionnable-->
+          <xs:element minOccurs="0" name="selection" type="xs:string"/>
+          <!--pack = 'OnlyIndvidual'       => Option qui ne fait pas partie d'un pack-->
+          <!--pack = 'OnlyInPack'          => Option qui fait partie d'un pack-->
+          <!--pack = 'InPackAndIndividual' => Option individuelle et qui fait partie d'un pack-->
+          <!--<xs:element minOccurs="1" name="pack" type="xs:string"/>-->
+          <!--<xs:element minOccurs="0" maxOccurs="unbounded" name="PackComponents" type="tn:CodePack"/>-->
+          <xs:element maxOccurs="1" minOccurs="0" name="specific" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="Co2Variation" type="xs:float"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="Co2Global" type="xs:float"/>
+          <!--<xs:element minOccurs="0" name="status" type="xs:string"/>-->
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OptionalFeatureV2">
+        <xs:complexContent>
+          <xs:extension base="tn:OptionalFeature">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="isDefault" type="xs:boolean"/>
+              <xs:element maxOccurs="1" minOccurs="0" name="Status" type="tn:GeosStatus"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="OptionalPack">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:string"/>
+          <xs:element minOccurs="1" name="code" type="xs:string"/>
+          <xs:element minOccurs="1" name="rank" type="xs:int"/>
+          <xs:element minOccurs="1" name="classe" type="xs:string"/>
+          <xs:element minOccurs="1" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="Price" type="tn:Price"/>
+          <xs:element minOccurs="0" name="PriceTtc" type="tn:Price"/>
+          <xs:element minOccurs="0" name="PriceMrip" type="tn:Price"/>
+          <xs:element minOccurs="0" name="PriceMripTtc" type="tn:Price"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="CommercialOffers" type="tn:CommercialOffers"/>
+          <xs:element minOccurs="1" name="assembly" type="xs:int"/>
+          <!--selection = 'user' => Sélectionné par le user-->
+          <!--selection = 'auto' => Sélectionné automatiquement-->
+          <!--selection = 'no'   => sélectionnable et non sélectionné-->
+          <xs:element minOccurs="0" name="selection" type="xs:string"/>
+          <!--forced = 'true'   => Pack forcé-->
+          <!--forced = 'false'  => Pack non forcé-->
+          <xs:element minOccurs="1" name="forced" type="xs:boolean"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="Co2Variation" type="xs:float"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="Co2Global" type="xs:float"/>
+          <xs:element maxOccurs="unbounded" minOccurs="2" name="PackFeatures" type="tn:PackFeature"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="Status" type="tn:GeosStatus"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Pack100">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:string"/>
+          <xs:element minOccurs="1" name="code" type="xs:string"/>
+          <xs:element minOccurs="1" name="rank" type="xs:int"/>
+          <xs:element minOccurs="1" name="classe" type="xs:string"/>
+          <xs:element minOccurs="1" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="1" name="assembly" type="xs:int"/>
+          <xs:element maxOccurs="unbounded" minOccurs="2" name="PackFeatures" type="tn:PackFeature"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PackFeature">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:string"/>
+          <xs:element minOccurs="1" name="label" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="Status" type="tn:GeosStatus"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TechnicalCharacteristicsCategories">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Category" type="tn:TechnicalCharacteristicCategory"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TechnicalCharacteristicCategory">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:string"/>
+          <xs:element minOccurs="1" name="label" type="xs:string"/>
+          <xs:element minOccurs="1" name="rank" type="xs:int"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="TechnicalCharacteristics" type="tn:TechnicalCharacteristic"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TechnicalCharacteristic">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:string"/>
+          <xs:element minOccurs="1" name="label" type="xs:string"/>
+          <xs:element minOccurs="1" name="rank" type="xs:int"/>
+          <xs:element minOccurs="1" name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="StandardCategories">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Category" type="tn:StandardCategory"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="StandardCategory">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:string"/>
+          <xs:element minOccurs="1" name="label" type="xs:string"/>
+          <xs:element minOccurs="1" name="rank" type="xs:int"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="StandardFeatures" type="tn:StandardFeature"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Packs100" type="tn:Pack100"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="StandardFeature">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:string"/>
+          <xs:element minOccurs="1" name="code" type="xs:string"/>
+          <xs:element minOccurs="1" name="label" type="xs:string"/>
+          <xs:element minOccurs="1" name="rank" type="xs:int"/>
+          <xs:element minOccurs="1" name="classe" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="1" name="assembly" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Tariff">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="tariffCode" type="xs:string"/>
+          <xs:element minOccurs="1" name="tariffStartDate" type="xs:date"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Identification">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="id" type="xs:string"/>
+          <xs:element minOccurs="1" name="label" type="xs:string"/>
+          <xs:element maxOccurs="1" minOccurs="0" name="description" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CodePack">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="code" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Price">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="basePrice" type="xs:decimal"/>
+          <xs:element minOccurs="1" name="netPrice" type="xs:decimal"/>
+          <xs:element minOccurs="1" name="discount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="priceStartDate" type="xs:date"/>
+          <xs:element minOccurs="0" name="priceEndDate" type="xs:date"/>
+          <xs:element minOccurs="0" name="bonus" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="malus" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="novaRate" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="novaValue" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="ecoprixbm" type="xs:decimal"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CommercialOffers">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="commercialOffer" type="tn:CommercialOffer"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CommercialOffer">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="idOc" type="xs:int"/>
+          <xs:element minOccurs="1" name="idRemise" type="xs:int"/>
+          <xs:element minOccurs="1" name="label" type="xs:string"/>
+          <xs:element minOccurs="1" name="description" type="xs:string"/>
+          <xs:element minOccurs="1" name="applied" type="xs:boolean"/>
+          <xs:element minOccurs="1" name="discount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="onBasePrice" type="xs:boolean"/>
+          <xs:element minOccurs="1" name="amount" type="xs:boolean"/>
+          <xs:element minOccurs="1" name="offer" type="xs:decimal"/>
+          <xs:element minOccurs="1" name="offerStartDate" type="xs:date"/>
+          <xs:element minOccurs="1" name="offerEndDate" type="xs:date"/>
+          <xs:element minOccurs="1" name="offerPartMar" type="xs:decimal"/>
+          <xs:element minOccurs="1" name="offerPartCre" type="xs:decimal"/>
+          <!--Décomposition des promos
+                order = 1 => Promo principal.
+                order = 2 => Promo secondaire.-->
+          <xs:element maxOccurs="1" minOccurs="0" name="order" type="xs:string"/>
+          <!--minOccurs = "0", avantageClient = false-->
+          <!--maxOccurs = "1", avantageClient = {false,true}-->
+          <xs:element maxOccurs="1" minOccurs="0" name="avantageClient" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xsd:schema>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://fault.core.cxl.inetpsa.com">
+      <xsd:complexType name="ServiceException"/>
+    </xsd:schema>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xml.inetpsa.com/Services/Cfg/Config">
+      <xsd:import namespace="http://fault.core.cxl.inetpsa.com"/>
+      <xsd:import namespace="http://inetpsa.com/cfg"/>
+      <xsd:element name="Config">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" ref="tn:Config"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConfigResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" ref="tn:ConfigResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConfigFeature">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" ref="tn:ConfigFeature"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConfigFeatureResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" ref="tn:ConfigFeatureResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConfigV2">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" ref="tn:Config"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConfigV2Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="1" minOccurs="1" ref="tn:ConfigResponseV2"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ServiceException" type="cxl:ServiceException"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ConfigRequest">
+    <wsdl:part element="tns:Config" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ConfigFeatureRequest">
+    <wsdl:part element="tns:ConfigFeature" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ConfigV2Request">
+    <wsdl:part element="tns:ConfigV2" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ServiceException">
+    <wsdl:part element="tns:ServiceException" name="ServiceException"/>
+  </wsdl:message>
+  <wsdl:message name="ConfigResponse">
+    <wsdl:part element="tns:ConfigResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ConfigFeatureResponse">
+    <wsdl:part element="tns:ConfigFeatureResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ConfigV2Response">
+    <wsdl:part element="tns:ConfigV2Response" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="ConfigPortType">
+    <wsdl:operation name="Config">
+      <wsdl:input message="tns:ConfigRequest" name="ConfigRequest"/>
+      <wsdl:output message="tns:ConfigResponse" name="ConfigResponse"/>
+      <wsdl:fault message="tns:ServiceException" name="ServiceException"/>
+    </wsdl:operation>
+    <wsdl:operation name="ConfigFeature">
+      <wsdl:input message="tns:ConfigFeatureRequest" name="ConfigFeatureRequest"/>
+      <wsdl:output message="tns:ConfigFeatureResponse" name="ConfigFeatureResponse"/>
+      <wsdl:fault message="tns:ServiceException" name="ServiceException"/>
+    </wsdl:operation>
+    <wsdl:operation name="ConfigV2">
+      <wsdl:input message="tns:ConfigV2Request" name="ConfigV2Request"/>
+      <wsdl:output message="tns:ConfigV2Response" name="ConfigV2Response"/>
+      <wsdl:fault message="tns:ServiceException" name="ServiceException"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConfigHttpBinding" type="tns:ConfigPortType">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Config">
+      <wsdlsoap:operation soapAction="http://xml.inetpsa.com/Services/Cfg/Config#Config"/>
+      <wsdl:input name="ConfigRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ConfigResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <wsdlsoap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConfigFeature">
+      <wsdlsoap:operation soapAction="http://xml.inetpsa.com/Services/Cfg/Config#ConfigFeature"/>
+      <wsdl:input name="ConfigFeatureRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ConfigFeatureResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <wsdlsoap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConfigV2">
+      <wsdlsoap:operation soapAction="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/>
+      <wsdl:input name="ConfigV2Request">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ConfigV2Response">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <wsdlsoap:fault name="ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Config">
+    <wsdl:port binding="tns:ConfigHttpBinding" name="ConfigHttpPort">
+      <wsdlsoap:address location="http://localhost:8080/cfg00Web/services/Config"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/cfg00Web/services/Config</con:endpoint></con:endpoints><con:operation id="04974faf-b296-4338-b5c4-1714da269d68" isOneWay="false" action="http://xml.inetpsa.com/Services/Cfg/Config#Config" name="Config" bindingOperationName="Config" type="Request-Response" outputName="ConfigResponse" inputName="ConfigRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f5bbea44-255f-4e96-96c1-10a59d8bba43" name="Config Request"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cfg00Web/services/Config</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <con:Config>\r
+         <cfg:Config>\r
+            <cfg:ContextRequest>\r
+               <cfg:Client>?</cfg:Client>\r
+               <cfg:Brand>?</cfg:Brand>\r
+               <cfg:Country>?</cfg:Country>\r
+               <!--You have a CHOICE of the next 2 items at this level-->\r
+               <cfg:Date>?</cfg:Date>\r
+               <cfg:TariffCode>?</cfg:TariffCode>\r
+               <!--Optional:-->\r
+               <cfg:LanguageID>?</cfg:LanguageID>\r
+               <!--Optional:-->\r
+               <cfg:Network>false</cfg:Network>\r
+               <!--You have a CHOICE of the next 3 items at this level-->\r
+               <cfg:TaxIncluded>true</cfg:TaxIncluded>\r
+               <cfg:ShowBothPrices>false</cfg:ShowBothPrices>\r
+               <cfg:ProfessionalUse>false</cfg:ProfessionalUse>\r
+               <!--Optional:-->\r
+               <cfg:ShowMRIP>false</cfg:ShowMRIP>\r
+               <!--Optional:-->\r
+               <cfg:ShowBonusMalus>false</cfg:ShowBonusMalus>\r
+               <!--Optional:-->\r
+               <cfg:TariffZone>?</cfg:TariffZone>\r
+               <!--Optional:-->\r
+               <cfg:LocalCurrency>false</cfg:LocalCurrency>\r
+               <!--Optional:-->\r
+               <cfg:ShowUnavailableLooks>true</cfg:ShowUnavailableLooks>\r
+               <!--Optional:-->\r
+               <cfg:ShowUnavailableOptionalFeatures>false</cfg:ShowUnavailableOptionalFeatures>\r
+               <!--Optional:-->\r
+               <cfg:ShowStatus>false</cfg:ShowStatus>\r
+               <!--Optional:-->\r
+               <cfg:GeosStatus>?</cfg:GeosStatus>\r
+               <!--Optional:-->\r
+               <cfg:ShowEcommerce>false</cfg:ShowEcommerce>\r
+            </cfg:ContextRequest>\r
+            <cfg:ConfigCriteria>\r
+               <cfg:Version>?</cfg:Version>\r
+               <!--Optional:-->\r
+               <cfg:WLTP>\r
+                  <cfg:FlagWLTP>?</cfg:FlagWLTP>\r
+                  <!--Optional:-->\r
+                  <cfg:DateWLTP>?</cfg:DateWLTP>\r
+                  <cfg:PhaseWLTP>?</cfg:PhaseWLTP>\r
+                  <!--Optional:-->\r
+                  <cfg:FactoryWLTP>?</cfg:FactoryWLTP>\r
+               </cfg:WLTP>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:Feature>\r
+                  <cfg:id>?</cfg:id>\r
+               </cfg:Feature>\r
+            </cfg:ConfigCriteria>\r
+         </cfg:Config>\r
+      </con:Config>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#Config"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Config Request 02" id="402e2810-5124-42aa-b0b7-3624b6bdd5aa"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=ffd16c30-c9e9-4a35-8ff0-0a527cdfdf1f</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:Config>
+         <cfg:Config>
+            <cfg:ContextRequest>
+               <cfg:Client>Livia</cfg:Client>
+               <cfg:Brand>P</cfg:Brand>
+               <cfg:Country>FR</cfg:Country>
+               <!--You have a CHOICE of the next 2 items at this level-->
+               <cfg:Date>2018-07-31</cfg:Date>
+               <cfg:TariffCode>007</cfg:TariffCode>
+               <!--Optional:-->
+               <cfg:LanguageID>FR</cfg:LanguageID>
+               <!--Optional:-->
+               <cfg:Network>false</cfg:Network>
+               <!--You have a CHOICE of the next 3 items at this level-->
+               <cfg:TaxIncluded>true</cfg:TaxIncluded>
+               <cfg:ShowBothPrices>false</cfg:ShowBothPrices>
+               <cfg:ProfessionalUse>false</cfg:ProfessionalUse>
+               <!--Optional:-->
+               <cfg:ShowMRIP>false</cfg:ShowMRIP>
+               <!--Optional:-->
+               <cfg:ShowBonusMalus>false</cfg:ShowBonusMalus>
+               <!--Optional:-->
+               <cfg:TariffZone>?</cfg:TariffZone>
+               <!--Optional:-->
+               <cfg:LocalCurrency>true</cfg:LocalCurrency>
+               <!--Optional:-->
+               <cfg:ShowUnavailableLooks>true</cfg:ShowUnavailableLooks>
+               <!--Optional:-->
+               <cfg:ShowUnavailableOptionalFeatures>true</cfg:ShowUnavailableOptionalFeatures>
+               <!--Optional:-->
+               <cfg:ShowStatus>false</cfg:ShowStatus>
+               <!--Optional:-->
+               <cfg:GeosStatus>?</cfg:GeosStatus>
+               <!--Optional:-->
+               <cfg:ShowEcommerce>true</cfg:ShowEcommerce>
+            </cfg:ContextRequest>
+            <cfg:ConfigCriteria>
+               <cfg:Version>1PIAA3TCQJB0A0G3</cfg:Version>
+               <!--Optional:-->
+               <cfg:WLTP>
+                  <cfg:FlagWLTP>true</cfg:FlagWLTP>
+                  <!--Optional:-->
+                  <cfg:DateWLTP>?</cfg:DateWLTP>
+                  <cfg:PhaseWLTP>FULL</cfg:PhaseWLTP>
+                  <!--Optional:-->
+                  <cfg:FactoryWLTP>?</cfg:FactoryWLTP>
+               </cfg:WLTP>
+               <!--Zero or more repetitions:-->
+               
+            </cfg:ConfigCriteria>
+         </cfg:Config>
+      </con:Config>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#Config"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="d51803d9-00c9-4ccc-8b4c-bafeb77db3b5" isOneWay="false" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigFeature" name="ConfigFeature" bindingOperationName="ConfigFeature" type="Request-Response" outputName="ConfigFeatureResponse" inputName="ConfigFeatureRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6379f5c7-145b-4bd1-8c0c-bf256befaaf0" name="ConfigFeature Request"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cfg00Web/services/Config</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <con:ConfigFeature>\r
+         <cfg:ConfigFeature>\r
+            <cfg:ContextRequest>\r
+               <cfg:Client>?</cfg:Client>\r
+               <cfg:Brand>?</cfg:Brand>\r
+               <cfg:Country>?</cfg:Country>\r
+               <!--You have a CHOICE of the next 2 items at this level-->\r
+               <cfg:Date>?</cfg:Date>\r
+               <cfg:TariffCode>?</cfg:TariffCode>\r
+               <!--Optional:-->\r
+               <cfg:LanguageID>?</cfg:LanguageID>\r
+               <!--Optional:-->\r
+               <cfg:Network>false</cfg:Network>\r
+               <!--You have a CHOICE of the next 3 items at this level-->\r
+               <cfg:TaxIncluded>true</cfg:TaxIncluded>\r
+               <cfg:ShowBothPrices>false</cfg:ShowBothPrices>\r
+               <cfg:ProfessionalUse>false</cfg:ProfessionalUse>\r
+               <!--Optional:-->\r
+               <cfg:ShowMRIP>false</cfg:ShowMRIP>\r
+               <!--Optional:-->\r
+               <cfg:ShowBonusMalus>false</cfg:ShowBonusMalus>\r
+               <!--Optional:-->\r
+               <cfg:TariffZone>?</cfg:TariffZone>\r
+               <!--Optional:-->\r
+               <cfg:LocalCurrency>false</cfg:LocalCurrency>\r
+               <!--Optional:-->\r
+               <cfg:ShowUnavailableLooks>true</cfg:ShowUnavailableLooks>\r
+               <!--Optional:-->\r
+               <cfg:ShowUnavailableOptionalFeatures>false</cfg:ShowUnavailableOptionalFeatures>\r
+               <!--Optional:-->\r
+               <cfg:ShowStatus>false</cfg:ShowStatus>\r
+               <!--Optional:-->\r
+               <cfg:GeosStatus>?</cfg:GeosStatus>\r
+               <!--Optional:-->\r
+               <cfg:ShowEcommerce>false</cfg:ShowEcommerce>\r
+            </cfg:ContextRequest>\r
+            <cfg:ConfigCriteria>\r
+               <!--Optional:-->\r
+               <cfg:VehicleUse>?</cfg:VehicleUse>\r
+               <!--1 or more repetitions:-->\r
+               <cfg:Model>?</cfg:Model>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:BodyStyle>?</cfg:BodyStyle>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:GrBodyStyle>?</cfg:GrBodyStyle>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:Grade>?</cfg:Grade>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:GrCommercialName>?</cfg:GrCommercialName>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:TransmissionType>?</cfg:TransmissionType>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:GrTransmissionType>?</cfg:GrTransmissionType>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:GrTypeBoiteVitesse>?</cfg:GrTypeBoiteVitesse>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:GrNumberOfDoors>?</cfg:GrNumberOfDoors>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:DerivedModels>?</cfg:DerivedModels>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:Engine>?</cfg:Engine>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:GrEngine>?</cfg:GrEngine>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:Energy>?</cfg:Energy>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:EcoLabel>?</cfg:EcoLabel>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:EcoLabelText>?</cfg:EcoLabelText>\r
+               <!--1 or more repetitions:-->\r
+               <cfg:Feature>\r
+                  <cfg:id>?</cfg:id>\r
+               </cfg:Feature>\r
+            </cfg:ConfigCriteria>\r
+         </cfg:ConfigFeature>\r
+      </con:ConfigFeature>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigFeature"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="8ea70a21-165f-49db-90f8-322790eee1b4" isOneWay="false" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2" name="ConfigV2" bindingOperationName="ConfigV2" type="Request-Response" outputName="ConfigV2Response" inputName="ConfigV2Request" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c26866f2-c59c-4dc8-9805-1d0418e2fc56" name="ConfigV2 Request"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cfg00Web/services/Config</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <con:ConfigV2>\r
+         <cfg:Config>\r
+            <cfg:ContextRequest>\r
+               <cfg:Client>?</cfg:Client>\r
+               <cfg:Brand>?</cfg:Brand>\r
+               <cfg:Country>?</cfg:Country>\r
+               <!--You have a CHOICE of the next 2 items at this level-->\r
+               <cfg:Date>?</cfg:Date>\r
+               <cfg:TariffCode>?</cfg:TariffCode>\r
+               <!--Optional:-->\r
+               <cfg:LanguageID>?</cfg:LanguageID>\r
+               <!--Optional:-->\r
+               <cfg:Network>false</cfg:Network>\r
+               <!--You have a CHOICE of the next 3 items at this level-->\r
+               <cfg:TaxIncluded>true</cfg:TaxIncluded>\r
+               <cfg:ShowBothPrices>false</cfg:ShowBothPrices>\r
+               <cfg:ProfessionalUse>false</cfg:ProfessionalUse>\r
+               <!--Optional:-->\r
+               <cfg:ShowMRIP>false</cfg:ShowMRIP>\r
+               <!--Optional:-->\r
+               <cfg:ShowBonusMalus>false</cfg:ShowBonusMalus>\r
+               <!--Optional:-->\r
+               <cfg:TariffZone>?</cfg:TariffZone>\r
+               <!--Optional:-->\r
+               <cfg:LocalCurrency>false</cfg:LocalCurrency>\r
+               <!--Optional:-->\r
+               <cfg:ShowUnavailableLooks>true</cfg:ShowUnavailableLooks>\r
+               <!--Optional:-->\r
+               <cfg:ShowUnavailableOptionalFeatures>false</cfg:ShowUnavailableOptionalFeatures>\r
+               <!--Optional:-->\r
+               <cfg:ShowStatus>false</cfg:ShowStatus>\r
+               <!--Optional:-->\r
+               <cfg:GeosStatus>?</cfg:GeosStatus>\r
+               <!--Optional:-->\r
+               <cfg:ShowEcommerce>false</cfg:ShowEcommerce>\r
+            </cfg:ContextRequest>\r
+            <cfg:ConfigCriteria>\r
+               <cfg:Version>?</cfg:Version>\r
+               <!--Optional:-->\r
+               <cfg:WLTP>\r
+                  <cfg:FlagWLTP>?</cfg:FlagWLTP>\r
+                  <!--Optional:-->\r
+                  <cfg:DateWLTP>?</cfg:DateWLTP>\r
+                  <cfg:PhaseWLTP>?</cfg:PhaseWLTP>\r
+                  <!--Optional:-->\r
+                  <cfg:FactoryWLTP>?</cfg:FactoryWLTP>\r
+               </cfg:WLTP>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:Feature>\r
+                  <cfg:id>?</cfg:id>\r
+               </cfg:Feature>\r
+            </cfg:ConfigCriteria>\r
+         </cfg:Config>\r
+      </con:ConfigV2>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/><con:wsrmConfig version="1.2"/></con:call><con:call id="52aab2c5-472d-46f0-a125-fd24dcaad0d2" name="ConfigV2 Request 02"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://wssoap.inetpsa.com/cfg00Web/services/Config</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:ConfigV2>
+         <cfg:Config>
+            <cfg:ContextRequest>
+               <cfg:Client>Livia</cfg:Client>
+               <cfg:Brand>P</cfg:Brand>
+               <cfg:Country>NL</cfg:Country>
+               <!--You have a CHOICE of the next 2 items at this level-->
+               <cfg:Date>2018-07-31</cfg:Date>
+               <cfg:TariffCode>?</cfg:TariffCode>
+               <!--Optional:-->
+               <cfg:LanguageID>NL</cfg:LanguageID>
+               <!--Optional:-->
+               <cfg:Network>false</cfg:Network>
+               <!--You have a CHOICE of the next 3 items at this level-->
+               <cfg:TaxIncluded>true</cfg:TaxIncluded>
+               <cfg:ShowBothPrices>false</cfg:ShowBothPrices>
+               <cfg:ProfessionalUse>false</cfg:ProfessionalUse>
+               <!--Optional:-->
+               <cfg:ShowMRIP>false</cfg:ShowMRIP>
+               <!--Optional:-->
+               <cfg:ShowBonusMalus>false</cfg:ShowBonusMalus>
+               <!--Optional:-->
+               <cfg:TariffZone>001</cfg:TariffZone>
+               <!--Optional:-->
+               <cfg:LocalCurrency>false</cfg:LocalCurrency>
+               <!--Optional:-->
+               <cfg:ShowUnavailableLooks>true</cfg:ShowUnavailableLooks>
+               <!--Optional:-->
+               <cfg:ShowUnavailableOptionalFeatures>true</cfg:ShowUnavailableOptionalFeatures>
+               <!--Optional:-->
+               <cfg:ShowStatus>false</cfg:ShowStatus>
+               <!--Optional:-->
+               <cfg:GeosStatus>?</cfg:GeosStatus>
+               <!--Optional:-->
+               <cfg:ShowEcommerce>false</cfg:ShowEcommerce>
+            </cfg:ContextRequest>
+            <cfg:ConfigCriteria>
+               <cfg:Version>1PT9A5TLHKB0A0D0</cfg:Version>
+               <!--Optional:-->
+               <cfg:WLTP>
+                  <cfg:FlagWLTP>true</cfg:FlagWLTP>
+                  <!--Optional:-->
+                  <cfg:DateWLTP>?</cfg:DateWLTP>
+                  <cfg:PhaseWLTP>FULL</cfg:PhaseWLTP>
+                  <!--Optional:-->
+                  <cfg:FactoryWLTP>?</cfg:FactoryWLTP>
+               </cfg:WLTP>
+               <!--Zero or more repetitions:-->
+               
+            </cfg:ConfigCriteria>
+         </cfg:Config>
+      </con:ConfigV2>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:addedBasicAuthenticationTypes>NTLM</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/><con:wsrmConfig version="1.2"/></con:call><con:call name="ConfigV2 Request 04" id="0743d59d-2f79-4c85-ab5b-ee0d7a2c9325"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Body>
+      <ConfigV2 xmlns="http://xml.inetpsa.com/Services/Cfg/Config">
+         <ns1:Config xmlns:ns1="http://inetpsa.com/cfg">
+            <ns1:ContextRequest>
+               <ns1:Client>Livia</ns1:Client>
+               <ns1:Brand>P</ns1:Brand>
+               <ns1:Country>NL</ns1:Country>
+               <ns1:Date>2018-07-31</ns1:Date>
+               <ns1:LanguageID>NL</ns1:LanguageID>
+               <ns1:Network>false</ns1:Network>
+               <ns1:TaxIncluded>true</ns1:TaxIncluded>
+               <ns1:TariffZone>001</ns1:TariffZone>
+               <ns1:LocalCurrency>false</ns1:LocalCurrency>
+               <ns1:ShowUnavailableLooks>true</ns1:ShowUnavailableLooks>
+               <ns1:ShowUnavailableOptionalFeatures>true</ns1:ShowUnavailableOptionalFeatures><ns1:ShowStatus>false</ns1:ShowStatus><ns1:ShowEcommerce>false</ns1:ShowEcommerce>
+            </ns1:ContextRequest>
+            <ns1:ConfigCriteria>
+               <ns1:Version>1PIAA3TCQJB0A0G3</ns1:Version>
+               <ns1:WLTP>
+                  <ns1:FlagWLTP>true</ns1:FlagWLTP>
+                  <ns1:PhaseWLTP>FULL</ns1:PhaseWLTP>
+               </ns1:WLTP>               
+            </ns1:ConfigCriteria>
+         </ns1:Config>
+      </ConfigV2>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username/><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/><con:wsrmConfig version="1.2"/></con:call><con:call id="214c8755-3074-4a47-8145-90b2fc6809e4" name="ConfigV2 Request 05 other id"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=ffd16c30-c9e9-4a35-8ff0-0a527cdfdf1f</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Body>
+      <ConfigV2 xmlns="http://xml.inetpsa.com/Services/Cfg/Config">
+         <ns1:Config xmlns:ns1="http://inetpsa.com/cfg">
+            <ns1:ContextRequest>
+               <ns1:Client>Livia</ns1:Client>
+               <ns1:Brand>P</ns1:Brand>
+               <ns1:Country>NL</ns1:Country>
+               <ns1:Date>2018-07-31</ns1:Date>
+               <ns1:LanguageID>NL</ns1:LanguageID>
+               <ns1:Network>false</ns1:Network>
+               <ns1:TaxIncluded>true</ns1:TaxIncluded>
+               <ns1:TariffZone>001</ns1:TariffZone>
+               <ns1:LocalCurrency>false</ns1:LocalCurrency>
+               <ns1:ShowUnavailableLooks>true</ns1:ShowUnavailableLooks>
+               <ns1:ShowUnavailableOptionalFeatures>true</ns1:ShowUnavailableOptionalFeatures><ns1:ShowStatus>false</ns1:ShowStatus><ns1:ShowEcommerce>false</ns1:ShowEcommerce>
+            </ns1:ContextRequest>
+            <ns1:ConfigCriteria>
+               <ns1:Version>1PIAA3TCQJB0A0G3</ns1:Version>
+               <ns1:WLTP>
+                  <ns1:FlagWLTP>true</ns1:FlagWLTP>
+                  <ns1:PhaseWLTP>FULL</ns1:PhaseWLTP>
+               </ns1:WLTP>               
+            </ns1:ConfigCriteria>
+         </ns1:Config>
+      </ConfigV2>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username/><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="4f5ce962-a161-48ae-b12a-b230f0e26240" name="Project 1 TestSuite 1"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:runType>SEQUENTIAL</con:runType><con:testCase id="ced3aedb-7fe5-4654-935c-81d67f6ee9d0" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="ConfigHttpBinding-Config Request TestCase" searchProperties="true" timeout="0" maxResults="0"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="request" id="833e57a5-f397-45a6-b021-56ef68073738" name="Config Request"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>Config</con:operation><con:request name="Config Request" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="ae889cb4-8a35-4a1d-9e89-ce1eb7ad5608"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="com.eviware.soapui.support.editor.views.xml.form2.FormEditorView@ViewType">All</con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://wssoap.inetpsa.com/cfg/config/v1?client_id=bd896111-cf8f-4c55-9cc3-eda7fdba06b8</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:Config>
+         <cfg:Config>
+            <cfg:ContextRequest>
+               <cfg:Client>Brandwidth</cfg:Client>
+               <cfg:Brand>P</cfg:Brand>
+               <cfg:Country>NL</cfg:Country>
+               <!--You have a CHOICE of the next 2 items at this level-->
+               <cfg:Date>2018-07-31</cfg:Date>
+               <cfg:TariffCode>?</cfg:TariffCode>
+               <!--Optional:-->
+               <cfg:LanguageID>?</cfg:LanguageID>
+               <!--Optional:-->
+               <cfg:Network>false</cfg:Network>
+               <!--You have a CHOICE of the next 3 items at this level-->
+               <cfg:TaxIncluded>true</cfg:TaxIncluded>
+               <cfg:ShowBothPrices>false</cfg:ShowBothPrices>
+               <cfg:ProfessionalUse>false</cfg:ProfessionalUse>
+               <!--Optional:-->
+               <cfg:ShowMRIP>false</cfg:ShowMRIP>
+               <!--Optional:-->
+               <cfg:ShowBonusMalus>false</cfg:ShowBonusMalus>
+               <!--Optional:-->
+               <cfg:TariffZone>?</cfg:TariffZone>
+               <!--Optional:-->
+               <cfg:LocalCurrency>false</cfg:LocalCurrency>
+               <!--Optional:-->
+               <cfg:ShowUnavailableLooks>true</cfg:ShowUnavailableLooks>
+               <!--Optional:-->
+               <cfg:ShowUnavailableOptionalFeatures>false</cfg:ShowUnavailableOptionalFeatures>
+               <!--Optional:-->
+               <cfg:ShowStatus>false</cfg:ShowStatus>
+               <!--Optional:-->
+               <cfg:GeosStatus>?</cfg:GeosStatus>
+               <!--Optional:-->
+               <cfg:ShowEcommerce>false</cfg:ShowEcommerce>
+            </cfg:ContextRequest>
+            <cfg:ConfigCriteria>
+               <cfg:Version>1PIAA3TCQJB0A0G3</cfg:Version>
+               <!--Optional:-->
+               <cfg:WLTP>
+                  <cfg:FlagWLTP>true</cfg:FlagWLTP>
+                  <!--Optional:-->
+                  <cfg:DateWLTP>?</cfg:DateWLTP>
+                  <cfg:PhaseWLTP>FULL</cfg:PhaseWLTP>
+                  <!--Optional:-->
+                  <cfg:FactoryWLTP>?</cfg:FactoryWLTP>
+               </cfg:WLTP>
+               <!--Zero or more repetitions:-->
+               <cfg:Feature>
+                  <cfg:id>?</cfg:id>
+               </cfg:Feature>
+            </cfg:ConfigCriteria>
+         </cfg:Config>
+      </con:Config>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#Config"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="2759172e-2094-4be6-b5cf-649159034882" name="Config Request different client key prod"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>Config</con:operation><con:request name="Config Request different client key prod" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="ae889cb4-8a35-4a1d-9e89-ce1eb7ad5608"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="com.eviware.soapui.support.editor.views.xml.form2.FormEditorView@ViewType">All</con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:Config>
+        <Config xmlns="http://inetpsa.com/cfg">
+    <ContextRequest>
+        <Client>websimulator</Client>
+        <Brand>P</Brand>
+        <Country>NL</Country>
+        <Date>2018-08-08</Date>
+        <Network>false</Network>
+        <TaxIncluded>true</TaxIncluded>
+        <LocalCurrency>false</LocalCurrency>
+        <ShowUnavailableLooks>false</ShowUnavailableLooks>
+        <ShowUnavailableOptionalFeatures>false</ShowUnavailableOptionalFeatures>
+    </ContextRequest>
+    <ConfigCriteria>
+        <Version>1PI4SYHKDKB0A0G0</Version>
+    </ConfigCriteria>
+</Config>
+      </con:Config>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#Config"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="1418fbbd-85d4-4770-820e-d06ff963094d" name="Config Request no client key preprod"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>Config</con:operation><con:request name="Config Request no client key preprod" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="ae889cb4-8a35-4a1d-9e89-ce1eb7ad5608"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="com.eviware.soapui.support.editor.views.xml.form2.FormEditorView@ViewType">All</con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:Config>
+<!--         <cfg:Config>-->
+            <Config xmlns="http://inetpsa.com/cfg">
+    <ContextRequest>
+        <Client>websimulator</Client>
+        <Brand>P</Brand>
+        <Country>NL</Country>
+        <Date>2018-08-08</Date>
+        <Network>false</Network>
+        <TaxIncluded>true</TaxIncluded>
+        <LocalCurrency>false</LocalCurrency>
+        <ShowUnavailableLooks>false</ShowUnavailableLooks>
+        <ShowUnavailableOptionalFeatures>false</ShowUnavailableOptionalFeatures>
+    </ContextRequest>
+    <ConfigCriteria>
+        <Version>1PI4SYHKDKB0A0G0</Version>
+    </ConfigCriteria>
+</Config>
+<!--         </cfg:Config>-->
+      </con:Config>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#Config"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="e11e0423-afb2-411c-9649-40652e2fcab8" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="ConfigHttpBinding-ConfigFeature-ConfigFeature Request TestCase" searchProperties="true" timeout="0" maxResults="0"><con:settings/><con:testStep type="request" id="252d655f-3bfd-420d-b78a-179bd12fe2a6" name="ConfigFeature ConfigFeature Request"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>ConfigFeature</con:operation><con:request name="ConfigFeature ConfigFeature Request" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d4bd9f4b-7f08-4c65-9697-44898cf4a4bb"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cfg00Web/services/Config</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <con:ConfigFeature>\r
+         <cfg:ConfigFeature>\r
+            <cfg:ContextRequest>\r
+               <cfg:Client>?</cfg:Client>\r
+               <cfg:Brand>?</cfg:Brand>\r
+               <cfg:Country>?</cfg:Country>\r
+               <!--You have a CHOICE of the next 2 items at this level-->\r
+               <cfg:Date>?</cfg:Date>\r
+               <cfg:TariffCode>?</cfg:TariffCode>\r
+               <!--Optional:-->\r
+               <cfg:LanguageID>?</cfg:LanguageID>\r
+               <!--Optional:-->\r
+               <cfg:Network>false</cfg:Network>\r
+               <!--You have a CHOICE of the next 3 items at this level-->\r
+               <cfg:TaxIncluded>true</cfg:TaxIncluded>\r
+               <cfg:ShowBothPrices>false</cfg:ShowBothPrices>\r
+               <cfg:ProfessionalUse>false</cfg:ProfessionalUse>\r
+               <!--Optional:-->\r
+               <cfg:ShowMRIP>false</cfg:ShowMRIP>\r
+               <!--Optional:-->\r
+               <cfg:ShowBonusMalus>false</cfg:ShowBonusMalus>\r
+               <!--Optional:-->\r
+               <cfg:TariffZone>?</cfg:TariffZone>\r
+               <!--Optional:-->\r
+               <cfg:LocalCurrency>false</cfg:LocalCurrency>\r
+               <!--Optional:-->\r
+               <cfg:ShowUnavailableLooks>true</cfg:ShowUnavailableLooks>\r
+               <!--Optional:-->\r
+               <cfg:ShowUnavailableOptionalFeatures>false</cfg:ShowUnavailableOptionalFeatures>\r
+               <!--Optional:-->\r
+               <cfg:ShowStatus>false</cfg:ShowStatus>\r
+               <!--Optional:-->\r
+               <cfg:GeosStatus>?</cfg:GeosStatus>\r
+               <!--Optional:-->\r
+               <cfg:ShowEcommerce>false</cfg:ShowEcommerce>\r
+            </cfg:ContextRequest>\r
+            <cfg:ConfigCriteria>\r
+               <!--Optional:-->\r
+               <cfg:VehicleUse>?</cfg:VehicleUse>\r
+               <!--1 or more repetitions:-->\r
+               <cfg:Model>?</cfg:Model>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:BodyStyle>?</cfg:BodyStyle>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:GrBodyStyle>?</cfg:GrBodyStyle>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:Grade>?</cfg:Grade>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:GrCommercialName>?</cfg:GrCommercialName>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:TransmissionType>?</cfg:TransmissionType>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:GrTransmissionType>?</cfg:GrTransmissionType>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:GrTypeBoiteVitesse>?</cfg:GrTypeBoiteVitesse>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:GrNumberOfDoors>?</cfg:GrNumberOfDoors>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:DerivedModels>?</cfg:DerivedModels>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:Engine>?</cfg:Engine>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:GrEngine>?</cfg:GrEngine>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:Energy>?</cfg:Energy>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:EcoLabel>?</cfg:EcoLabel>\r
+               <!--Zero or more repetitions:-->\r
+               <cfg:EcoLabelText>?</cfg:EcoLabelText>\r
+               <!--1 or more repetitions:-->\r
+               <cfg:Feature>\r
+                  <cfg:id>?</cfg:id>\r
+               </cfg:Feature>\r
+            </cfg:ConfigCriteria>\r
+         </cfg:ConfigFeature>\r
+      </con:ConfigFeature>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="29b6b1b0-6a78-454b-9e73-5e7897c1f78a" name="SOAP Response"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigFeature"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="133c956a-d03f-4a09-83e8-0dfae1b78dad" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="ConfigHttpBinding-ConfigV2 Request TestCase" searchProperties="true" timeout="0" maxResults="0"><con:settings/><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="request" id="c41fce2d-8bda-4cfb-ae1c-ed898ee25eb6" name="ConfigV2 Request"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>ConfigV2</con:operation><con:request name="ConfigV2 Request" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" id="7b4b7240-1a2a-43ce-9a86-2162f813bd79"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://api-basic-preprod.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=bd896111-cf8f-4c55-9cc3-eda7fdba06b8</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:ConfigV2>
+         <cfg:Config>
+            <cfg:ContextRequest>
+               <cfg:Client>Brandwidth</cfg:Client>
+               <cfg:Brand>P</cfg:Brand>
+               <cfg:Country>NL</cfg:Country>
+               <!--You have a CHOICE of the next 2 items at this level-->
+               <cfg:Date>2018-07-31</cfg:Date>
+               <cfg:TariffCode>true</cfg:TariffCode>
+               <!--Optional:-->
+               <cfg:LanguageID>NL</cfg:LanguageID>
+               <!--Optional:-->
+               <cfg:Network>false</cfg:Network>
+               <!--You have a CHOICE of the next 3 items at this level-->
+               <cfg:TaxIncluded>true</cfg:TaxIncluded>
+               <cfg:ShowBothPrices>false</cfg:ShowBothPrices>
+               <cfg:ProfessionalUse>false</cfg:ProfessionalUse>
+               <!--Optional:-->
+               <cfg:ShowMRIP>false</cfg:ShowMRIP>
+               <!--Optional:-->
+               <cfg:ShowBonusMalus>false</cfg:ShowBonusMalus>
+               <!--Optional:-->
+               <cfg:TariffZone>001</cfg:TariffZone>
+               <!--Optional:-->
+               <cfg:LocalCurrency>false</cfg:LocalCurrency>
+               <!--Optional:-->
+               <cfg:ShowUnavailableLooks>true</cfg:ShowUnavailableLooks>
+               <!--Optional:-->
+               <cfg:ShowUnavailableOptionalFeatures>true</cfg:ShowUnavailableOptionalFeatures>
+               <!--Optional:-->
+               <cfg:ShowStatus>false</cfg:ShowStatus>
+               <!--Optional:-->
+               <cfg:GeosStatus>?</cfg:GeosStatus>
+               <!--Optional:-->
+               <cfg:ShowEcommerce>false</cfg:ShowEcommerce>
+            </cfg:ContextRequest>
+            <cfg:ConfigCriteria>
+               <cfg:Version>1PIAA3TCQJB0A0G3</cfg:Version>
+               <!--Optional:-->
+               <cfg:WLTP>
+                  <cfg:FlagWLTP>true</cfg:FlagWLTP>
+                  <!--Optional:-->
+                  <cfg:DateWLTP>2018-07-31+02:00</cfg:DateWLTP>
+                  <cfg:PhaseWLTP>FULL</cfg:PhaseWLTP>
+                  <!--Optional:-->
+                  <cfg:FactoryWLTP>?</cfg:FactoryWLTP>
+               </cfg:WLTP>
+               <!--Zero or more repetitions:-->
+               
+            </cfg:ConfigCriteria>
+         </cfg:Config>
+      </con:ConfigV2>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Inherit From Service</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/><con:wsrmConfig version="1.2" offerEndpoint="http://wssoap.inetpsa.com/cfg"/></con:request></con:config></con:testStep><con:testStep type="request" id="ef3337f8-e966-46e4-9f0f-46aff0670779" name="ConfigV2 Request example email"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>ConfigV2</con:operation><con:request name="ConfigV2 Request example email" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" id="7b4b7240-1a2a-43ce-9a86-2162f813bd79"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api-basic-preprod.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=bd896111-cf8f-4c55-9cc3-eda7fdba06b8</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://xml.inetpsa.com/Services/Cfg/Config" xmlns:cfg="http://inetpsa.com/cfg">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:ConfigV2>
+         <cfg:Config>
+            <cfg:ContextRequest>
+               <cfg:Client>Brandwidth</cfg:Client>
+               <cfg:Brand>P</cfg:Brand>
+               <cfg:Country>NL</cfg:Country>
+               <!--You have a CHOICE of the next 2 items at this level-->
+               <cfg:Date>2018-07-31</cfg:Date>
+               <cfg:TariffCode>true</cfg:TariffCode>
+               <!--Optional:-->
+               <cfg:LanguageID>NL</cfg:LanguageID>
+               <!--Optional:-->
+               <cfg:Network>false</cfg:Network>
+               <!--You have a CHOICE of the next 3 items at this level-->
+               <cfg:TaxIncluded>true</cfg:TaxIncluded>
+               <cfg:ShowBothPrices>false</cfg:ShowBothPrices>
+               <cfg:ProfessionalUse>false</cfg:ProfessionalUse>
+               <!--Optional:-->
+               <cfg:ShowMRIP>false</cfg:ShowMRIP>
+               <!--Optional:-->
+               <cfg:ShowBonusMalus>false</cfg:ShowBonusMalus>
+               <!--Optional:-->
+               <cfg:TariffZone>001</cfg:TariffZone>
+               <!--Optional:-->
+               <cfg:LocalCurrency>false</cfg:LocalCurrency>
+               <!--Optional:-->
+               <cfg:ShowUnavailableLooks>true</cfg:ShowUnavailableLooks>
+               <!--Optional:-->
+               <cfg:ShowUnavailableOptionalFeatures>true</cfg:ShowUnavailableOptionalFeatures>
+               <!--Optional:-->
+               <cfg:ShowStatus>false</cfg:ShowStatus>
+               <!--Optional:-->
+               <cfg:GeosStatus>?</cfg:GeosStatus>
+               <!--Optional:-->
+               <cfg:ShowEcommerce>false</cfg:ShowEcommerce>
+            </cfg:ContextRequest>
+            <cfg:ConfigCriteria>
+               <cfg:Version>1PIAA3TCQJB0A0G3</cfg:Version>
+               <!--Optional:-->
+               <cfg:WLTP>
+                  <cfg:FlagWLTP>true</cfg:FlagWLTP>
+                  <!--Optional:-->
+                  <cfg:DateWLTP>2018-07-31+02:00</cfg:DateWLTP>
+                  <cfg:PhaseWLTP>FULL</cfg:PhaseWLTP>
+                  <!--Optional:-->
+                  <cfg:FactoryWLTP>?</cfg:FactoryWLTP>
+               </cfg:WLTP>
+               <!--Zero or more repetitions:-->
+               
+            </cfg:ConfigCriteria>
+         </cfg:Config>
+      </con:ConfigV2>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Inherit From Service</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/><con:wsrmConfig version="1.2" offerEndpoint="http://wssoap.inetpsa.com/cfg"/></con:request></con:config></con:testStep><con:testStep type="request" id="03234d8e-67ee-44f5-9de6-4fbf10abcb19" name="ConfigV2 Request different client key"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>ConfigV2</con:operation><con:request name="ConfigV2 Request different client key" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" id="7b4b7240-1a2a-43ce-9a86-2162f813bd79"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=ffd16c30-c9e9-4a35-8ff0-0a527cdfdf1f</con:endpoint><con:request><![CDATA[<Config xmlns="http://inetpsa.com/cfg">
+    <ContextRequest>
+        <Client>websimulator</Client>
+        <Brand>P</Brand>
+        <Country>NL</Country>
+        <Date>2018-08-08</Date>
+        <Network>false</Network>
+        <TaxIncluded>true</TaxIncluded>
+        <LocalCurrency>false</LocalCurrency>
+        <ShowUnavailableLooks>false</ShowUnavailableLooks>
+        <ShowUnavailableOptionalFeatures>false</ShowUnavailableOptionalFeatures>
+    </ContextRequest>
+    <ConfigCriteria>
+        <Version>1PI4SYHKDKB0A0G0</Version>
+    </ConfigCriteria>
+</Config>]]></con:request><con:credentials><con:selectedAuthProfile>Inherit From Service</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/><con:wsrmConfig version="1.2" offerEndpoint="http://wssoap.inetpsa.com/cfg"/></con:request></con:config></con:testStep><con:testStep type="request" id="09a65461-5e5c-48e2-b6cb-7a05ff1dacf4" name="ConfigV2 Request - trail and error fase"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConfigHttpBinding</con:interface><con:operation>ConfigV2</con:operation><con:request name="ConfigV2 Request - trail and error fase" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" id="7b4b7240-1a2a-43ce-9a86-2162f813bd79"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cfg00Web/services/Config</con:endpoint><con:request><![CDATA[<soapenv:Envelope 
+       xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+       xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Body>
+      <ConfigV2 xmlns="http://xml.inetpsa.com/Services/Cfg/Config">
+         <ns1:Config xmlns:ns1="http://inetpsa.com/cfg">
+            <ns1:ContextRequest>
+               <ns1:Client>websimulator</ns1:Client>
+               <ns1:Brand>P</ns1:Brand>
+               <ns1:Country>NL</ns1:Country>
+               <ns1:Date>2018-08-08</ns1:Date>
+               <ns1:LanguageID>NL</ns1:LanguageID>
+               <ns1:TaxIncluded>true</ns1:TaxIncluded>
+               <ns1:LocalCurrency>false</ns1:LocalCurrency>
+            </ns1:ContextRequest>
+            <ns1:ConfigCriteria>
+               <ns1:Version>1PT9A5TLHKB0A0D0</ns1:Version>
+               <ns1:WLTP>
+                  <ns1:FlagWLTP>true</ns1:FlagWLTP>
+                  <ns1:PhaseWLTP>FULL</ns1:PhaseWLTP>
+               </ns1:WLTP>
+               <ns1:Feature>
+                  <ns1:id>0P8D0RFJ</ns1:id>
+               </ns1:Feature>
+               <ns1:Feature>
+                  <ns1:id>0MM60NN9</ns1:id>
+               </ns1:Feature>
+            </ns1:ConfigCriteria>
+         </ns1:Config>
+      </ConfigV2>
+   </soapenv:Body>
+</soapenv:Envelope>
+]]></con:request><con:credentials><con:selectedAuthProfile>Inherit From Service</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/><con:wsrmConfig version="1.2" offerEndpoint="http://wssoap.inetpsa.com/cfg"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:savedRecentRuns>1</con:savedRecentRuns><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:jmsConnectionContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:reporting><con:reportTemplates/><con:xmlTemplates/><con:xmlTemplates/><con:parameters/><con:parameters/></con:reporting><con:reporting/><con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest"><con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to SoapUI Pro tests
+
+// If hardcoding the token, uncomment and change line 5
+// def token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// def token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// def headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script></con:eventHandlers><con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep"><con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script></con:eventHandlers><con:authRepository/><con:tags/></con:soapui-project>
