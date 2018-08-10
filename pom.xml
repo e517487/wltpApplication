@@ -53,27 +53,44 @@
                 <version>0.12.3</version>
                 <executions>
                     <execution>
+                        <id>wsdl-config</id>
                         <goals>
                             <goal>generate</goal>
                         </goals>
+
+
+                        <configuration>
+                            <schemaLanguage>WSDL</schemaLanguage>
+                            <generatePackage>Config.wsdl</generatePackage>
+                            <!--<generatePackage>Select.wsdl</generatePackage>-->
+                            <!--<schemas>
+                                <schema>
+                                    <url>https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14</url>
+                                    <url>http://www.webservicex.com/stockquote.asmx?WSDL</url>
+                                </schema>
+                            </schemas>-->
+                            <!--<schemaDirectory>${project.basedir}/src/main/resources/wsdl</schemaDirectory>-->
+                            <schemaDirectory>${project.basedir}/src/main/resources/wsdl-config</schemaDirectory>
+                            <schemaIncludes>
+                                <include>*.wsdl</include>
+                            </schemaIncludes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>wsdl-select</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <schemaLanguage>WSDL</schemaLanguage>
+                            <generatePackage>Select.wsdl</generatePackage>
+                            <schemaDirectory>${project.basedir}/src/main/resources/wsdl-select</schemaDirectory>
+                            <schemaIncludes>
+                                <include>*.wsdl</include>
+                            </schemaIncludes>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <schemaLanguage>WSDL</schemaLanguage>
-                    <!--<generatePackage>Config.wsdl</generatePackage>-->
-                    <generatePackage>Select.wsdl</generatePackage>
-                    <!--<schemas>
-                        <schema>
-                            <url>https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14</url>
-                            <url>http://www.webservicex.com/stockquote.asmx?WSDL</url>
-                        </schema>
-                    </schemas>-->
-                    <!--<schemaDirectory>${project.basedir}/src/main/resources/wsdl</schemaDirectory>-->
-                    <schemaDirectory>${project.basedir}/src/main/resources/wsdl</schemaDirectory>
-                    <schemaIncludes>
-                        <include>*.wsdl</include>
-                    </schemaIncludes>
-                </configuration>
 
             </plugin>
             <!-- end::wsdl[] -->
