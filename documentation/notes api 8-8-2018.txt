@@ -13,7 +13,7 @@ websimulator
 propod 
 brand 
 country 
-Env: Pub    previouw
+Env: Pub    previuw
 Env: PRod   final data
 server: VIP
 

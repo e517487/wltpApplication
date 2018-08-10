@@ -34,6 +34,17 @@ urls no authorisation
         - APNL
         - ACNL
 
+		to test:
+		in https://websim.mpsa.com/websimulator<br>
+	propod<BR> 
+    brand <BR>
+    country <BR>
+    Env: Pub    preview<BR>
+    Env: PRod   final data<BR>
+    server: VIP<BR>
+    
+### certificates ###
+changeit password certificates.    
 
 ### Contacts for support  ####
 

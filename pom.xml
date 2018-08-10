@@ -28,6 +28,16 @@
             <groupId>org.springframework.ws</groupId>
             <artifactId>spring-ws-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-ws-security</artifactId>
+            <version>2.2.2.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -50,7 +60,8 @@
                 </executions>
                 <configuration>
                     <schemaLanguage>WSDL</schemaLanguage>
-                    <generatePackage>Config.wsdl</generatePackage>
+                    <!--<generatePackage>Config.wsdl</generatePackage>-->
+                    <generatePackage>Select.wsdl</generatePackage>
                     <!--<schemas>
                         <schema>
                             <url>https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14</url>
@@ -63,6 +74,7 @@
                         <include>*.wsdl</include>
                     </schemaIncludes>
                 </configuration>
+
             </plugin>
             <!-- end::wsdl[] -->
         </plugins>

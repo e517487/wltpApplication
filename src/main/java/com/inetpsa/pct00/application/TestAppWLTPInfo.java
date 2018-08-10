@@ -15,6 +15,28 @@ public class TestAppWLTPInfo {
 
 
     public static void main(String args[]) {
+/*        String tmp = System.getProperty("http.proxyUser", System.getProperty("https.proxyUser"));
+        if (tmp == null) {
+            System.out.println("Proxy username: ");
+            tmp = new Scanner(System.in).nextLine();
+        }
+        final String userName = tmp;
+
+        tmp = System.getProperty("http.proxyPassword", System.getProperty("https.proxyPassword"));
+        if (tmp == null) {
+            System.out.println("Proxy password: ");
+            tmp = new Scanner(System.in).nextLine();
+        }
+        final char[] password = tmp.toCharArray();
+
+        Authenticator.setDefault(new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                System.out.println("\n--------------\nProxy auth: " + userName);
+                return new PasswordAuthentication (userName, password);
+            }
+
+        });*/
         SpringApplication.run(TestAppWLTPInfo.class, args);
 
     }
@@ -27,15 +49,6 @@ public class TestAppWLTPInfo {
             wltpInfoClient.getWltpConfigV2(  );
         };
     }
-
-/*    @Bean
-    CommandLineRunner lookup(Config_Service configService) {
-        return args -> {
-            ConfigPortType configHttpPort = configService.getConfigHttpPort();
-        };
-    }*/
-
-
 }
 
 
