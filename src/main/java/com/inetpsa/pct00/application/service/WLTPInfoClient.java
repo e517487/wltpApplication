@@ -94,8 +94,8 @@ public class WLTPInfoClient extends WebServiceGatewaySupport  {
 //            configV2 = objectFactory.createConfigV2();
             response = webServiceTemplate
 //                    .marshalSendAndReceive("https://api.inetpsa.com/"
-                    .marshalSendAndReceive("http://localhost:8080/ws"
-//                    .marshalSendAndReceive("https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14"
+//                    .marshalSendAndReceive("http://localhost:8080/"
+                    .marshalSendAndReceive("https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14"
 //                .marshalSendAndReceive("https://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=ffd16c30-c9e9-4a35-8ff0-0a527cdfdf1f"
                             , configV2);
 

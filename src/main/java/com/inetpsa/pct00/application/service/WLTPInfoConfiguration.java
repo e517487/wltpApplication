@@ -32,8 +32,8 @@ public class WLTPInfoConfiguration {
     @Bean
     public WLTPInfoClient wltpInfoClient( Jaxb2Marshaller marshaller) throws Exception {
         WLTPInfoClient wltpInfoClient = new WLTPInfoClient();
-//        wltpInfoClient.setDefaultUri("https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1");
-//        wltpInfoClient.setDefaultUri("https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14");
+//        wltpInfoClient.setDefaultUri("http://localhost:8080/");
+        wltpInfoClient.setDefaultUri("https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14");
 //        wltpInfoClient.setDefaultUri("https://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=ffd16c30-c9e9-4a35-8ff0-0a527cdfdf1f");
         wltpInfoClient.setMarshaller( marshaller);
         wltpInfoClient.setUnmarshaller( marshaller);

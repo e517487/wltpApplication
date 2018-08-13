@@ -13,10 +13,6 @@ public class WLTPInfoService {
 
     private ObjectFactory objectFactory;
 
-/*    @Value("${wltp-info.api.url}")
-    private String rootUri;
-    @Value("${wltp-info.api.key}")
-    private String key;*/
 
     public WLTPInfoService( ) {
 

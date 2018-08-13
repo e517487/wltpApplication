@@ -697,6 +697,7 @@
   </wsdl:binding>
   <wsdl:service name="Config">
     <wsdl:port binding="tns:ConfigHttpBinding" name="ConfigHttpPort">
+      <!--<wsdlsoap:address location="http://localhost:8080/"/>-->
       <!--<wsdlsoap:address location="http://localhost:8080/cfg00Web/services/Config"/>-->
       <wsdlsoap:address location="https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14"/>
     </wsdl:port>
