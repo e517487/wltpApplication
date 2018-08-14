@@ -44,6 +44,15 @@ urls no authorisation
     server: VIP<BR>
     
 ### certificates ###
+PSA cerificates from api.inetpsa.com has to be added to cacerts of the Java virtual machine .
+Added PSA cerificates to the JRE and JDK:
+C:\Program Files\Java\jre1.8.0_171\lib\security\cacerts
+
+C:\Program Files\Java\jdk1.8.0_171\jre\lib\security\cacerts
+
+for this to do i used keystore explorer 5.3.2 and added certs from: api.inetpsa.com:443 
+
+
 changeit password certificates.    
 
 ### Contacts for support  ####

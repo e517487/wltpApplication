@@ -700,6 +700,8 @@
       <!--<wsdlsoap:address location="http://localhost:8080/"/>-->
       <!--<wsdlsoap:address location="http://localhost:8080/cfg00Web/services/Config"/>-->
       <wsdlsoap:address location="https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14"/>
+      <!--<wsdlsoap:address location="https://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=ffd16c30-c9e9-4a35-8ff0-0a527cdfdf1f"/>-->
+
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

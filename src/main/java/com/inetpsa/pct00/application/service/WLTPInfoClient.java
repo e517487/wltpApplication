@@ -10,6 +10,7 @@ import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
+
 @Service
 public class WLTPInfoClient extends WebServiceGatewaySupport  {
 
@@ -31,9 +32,9 @@ public class WLTPInfoClient extends WebServiceGatewaySupport  {
      */
     public ConfigResponseTypeV2 getWltpConfigV2() {
 
-//        System.setProperty("java.net.useSystemProxies", "true");
-//        System.setProperty("http.proxyUser", "e517487");
-//        System.setProperty("http.proxyPassword", "Fdsa123a");
+        System.setProperty("java.net.useSystemProxies", "true");
+        System.setProperty("http.proxyUser", "e517487");
+        System.setProperty("http.proxyPassword", "Fdsa123a");
 
         XMLGregorianCalendar date = new XMLGregorianCalendarImpl();
         date.setYear(2018);
@@ -78,26 +79,18 @@ public class WLTPInfoClient extends WebServiceGatewaySupport  {
 
         //nu kijken of er iets te halen valt
         WebServiceTemplate webServiceTemplate = getWebServiceTemplate();
-/*
-            SaajSoapMessageFactory messageFactory = new SaajSoapMessageFactory(
-                    MessageFactory.newInstance());
-            messageFactory.afterPropertiesSet();
-            webServiceTemplate.setMessageFactory(messageFactory);
 
-
-            webServiceTemplate.afterPropertiesSet();
-
-       */
         ConfigResponseTypeV2 configResponseTypeV2;
         Object response = null;
         try {
-//            configV2 = objectFactory.createConfigV2();
+
             response = webServiceTemplate
 //                    .marshalSendAndReceive("https://api.inetpsa.com/"
 //                    .marshalSendAndReceive("http://localhost:8080/"
                     .marshalSendAndReceive("https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14"
 //                .marshalSendAndReceive("https://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=ffd16c30-c9e9-4a35-8ff0-0a527cdfdf1f"
-                            , configV2);
+//                .marshalSendAndReceive("https://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=ffd16c30-c9e9-4a35-8ff0-0a527cdfdf1f"
+                    , configV2 );
 
 //                ,new SoapActionCallback("ConfigResponseV2"));
 
