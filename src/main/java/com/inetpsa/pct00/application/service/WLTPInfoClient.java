@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.ws.client.core.WebServiceTemplate;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
+import org.springframework.ws.soap.client.core.SoapActionCallback;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
@@ -32,9 +33,9 @@ public class WLTPInfoClient extends WebServiceGatewaySupport  {
      */
     public ConfigResponseTypeV2 getWltpConfigV2() {
 
-        System.setProperty("java.net.useSystemProxies", "true");
-        System.setProperty("http.proxyUser", "e517487");
-        System.setProperty("http.proxyPassword", "Fdsa123a");
+//        System.setProperty("java.net.useSystemProxies", "true");
+//        System.setProperty("http.proxyUser", "e517487");
+//        System.setProperty("http.proxyPassword", "Fdsa123a");
 
         XMLGregorianCalendar date = new XMLGregorianCalendarImpl();
         date.setYear(2018);
@@ -87,12 +88,14 @@ public class WLTPInfoClient extends WebServiceGatewaySupport  {
             response = webServiceTemplate
 //                    .marshalSendAndReceive("https://api.inetpsa.com/"
 //                    .marshalSendAndReceive("http://localhost:8080/"
-                    .marshalSendAndReceive("https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14"
+//                    .marshalSendAndReceive("https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14"
 //                .marshalSendAndReceive("https://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=ffd16c30-c9e9-4a35-8ff0-0a527cdfdf1f"
 //                .marshalSendAndReceive("https://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=ffd16c30-c9e9-4a35-8ff0-0a527cdfdf1f"
-                    , configV2 );
+//                    , configV2 );
 
-//                ,new SoapActionCallback("ConfigResponseV2"));
+                            .marshalSendAndReceive(configV2, new SoapActionCallback("http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"));
+//                            .marshalSendAndReceive(configV2, new SoapActionCallback("http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2Response"));
+
 
 
 //        System.out.println("Version: " + configResponseTypeV2.getVersion());
