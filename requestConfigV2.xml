@@ -1,0 +1,30 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Body>
+        <ConfigV2 xmlns="http://xml.inetpsa.com/Services/Cfg/Config">
+            <ns1:Config xmlns:ns1="http://inetpsa.com/cfg">
+                <ns1:ContextRequest>
+                    <ns1:Client>websimulator</ns1:Client>
+                    <ns1:Brand>P</ns1:Brand>
+                    <ns1:Country>NL</ns1:Country>
+                    <ns1:Date>2018-08-08</ns1:Date>
+                    <ns1:LanguageID>NL</ns1:LanguageID>
+                    <ns1:TaxIncluded>true</ns1:TaxIncluded>
+                    <ns1:LocalCurrency>false</ns1:LocalCurrency>
+                </ns1:ContextRequest>
+                <ns1:ConfigCriteria>
+                    <ns1:Version>1PT9A5TLHKB0A0D0</ns1:Version>
+                    <ns1:WLTP>
+                        <ns1:FlagWLTP>true</ns1:FlagWLTP>
+                        <ns1:PhaseWLTP>FULL</ns1:PhaseWLTP>
+                    </ns1:WLTP>
+                    <ns1:Feature>
+                        <ns1:id>0P8D0RFJ</ns1:id>
+                    </ns1:Feature>
+                    <ns1:Feature>
+                        <ns1:id>0MM60NN9</ns1:id>
+                    </ns1:Feature>
+                </ns1:ConfigCriteria>
+            </ns1:Config>
+        </ConfigV2>
+    </soapenv:Body>
+</soapenv:Envelope>
