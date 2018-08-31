@@ -15,9 +15,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 @Service
-public class WLTPInfoClient extends WebServiceGatewaySupport  {
+public class WLTPInfoConfigClient extends WebServiceGatewaySupport {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(WLTPInfoClient.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(WLTPInfoConfigClient.class);
 
     private ObjectFactory objectFactory;
 
@@ -25,16 +25,9 @@ public class WLTPInfoClient extends WebServiceGatewaySupport  {
     @Autowired
     HttpComponentsMessageSender httpComponentsMessageSender;
 
-    public WLTPInfoClient() {
+    public WLTPInfoConfigClient() {
 
         objectFactory = new ObjectFactory();
-    }
-
-    /**
-     *
-     */
-    public void getWltpService() {
-
     }
 
     /**
@@ -43,6 +36,7 @@ public class WLTPInfoClient extends WebServiceGatewaySupport  {
      * url
      */
     public ConfigV2Response getWltpConfigV2() {
+        // Used this method to fill the request object for the actual webcall
 
         XMLGregorianCalendar date = new XMLGregorianCalendarImpl();
         date.setYear(2018);
@@ -84,7 +78,10 @@ public class WLTPInfoClient extends WebServiceGatewaySupport  {
         contextRequest.setLocalCurrency(false);
 
         configType.setContextRequest(contextRequest);
+        return getWltpConfigV2(configV2);
+    }
 
+    public ConfigV2Response getWltpConfigV2(ConfigV2 configV2) {
         //Request object is filled, now do the web request:
         WebServiceTemplate webServiceTemplate = getWebServiceTemplate();
 
@@ -97,7 +94,7 @@ public class WLTPInfoClient extends WebServiceGatewaySupport  {
 
 
             response = webServiceTemplate
-                            .marshalSendAndReceive(configV2, new SoapActionCallback("http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"));
+                    .marshalSendAndReceive(configV2, new SoapActionCallback("http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"));
 //                            .marshalSendAndReceive(configV2, new SoapActionCallback("http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2Response"));
 //        System.out.println("Version: " + configResponseTypeV2.getVersion());
 /*        ConfigResponseTypeV2 configResponseTypeV2 = (ConfigResponseTypeV2) getWebServiceTemplate()

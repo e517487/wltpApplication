@@ -1,6 +1,6 @@
 package com.inetpsa.pct00.application;
 
-import com.inetpsa.pct00.application.service.WLTPInfoClient;
+import com.inetpsa.pct00.application.service.WLTPInfoConfigClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -21,10 +21,10 @@ public class TestAppWLTPInfo {
     }
 
     @Bean
-    CommandLineRunner lookup(WLTPInfoClient wltpInfoClient) {
+    CommandLineRunner lookup(WLTPInfoConfigClient wltpInfoConfigClient) {
 
         return args -> {
-            wltpInfoClient.getWltpConfigV2(  );
+            wltpInfoConfigClient.getWltpConfigV2(  );
         };
     }
 }
