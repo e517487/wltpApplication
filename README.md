@@ -5,8 +5,10 @@ This java project WLTP is a Proof of Concept to get the CO2 values for a certain
 ## Webservice description ##
 
 This wsdl contains the definition of the ConfigV2 webservice, which contains the WLTP info.
-- Config.wsdl
-- Select.wsdl
+- Config.wsdl  
+http://wssoap.inetpsa.com/cfg/services/Config?wsdl
+- Select.wsdl   
+http://wssoap.inetpsa.com/cfg/services/Select?wsdl
 - there are more but we don't need these.
 
 The Config.wsdl is the one which we need to use to get the WLTP information for the CO2 values and total.

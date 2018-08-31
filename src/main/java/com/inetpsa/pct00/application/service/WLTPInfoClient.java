@@ -30,6 +30,12 @@ public class WLTPInfoClient extends WebServiceGatewaySupport  {
         objectFactory = new ObjectFactory();
     }
 
+    /**
+     *
+     */
+    public void getWltpService() {
+
+    }
 
     /**
      * Do a REST API call to get information for  WLTP Info's.
@@ -43,7 +49,7 @@ public class WLTPInfoClient extends WebServiceGatewaySupport  {
         date.setMonth(8);
         date.setDay(8);
 
-        //Request
+        //Lets fill the Request object.
         ConfigV2 configV2 = objectFactory.createConfigV2();
         ConfigType configType = objectFactory.createConfigType();
         configV2.setConfig(configType);
@@ -79,7 +85,7 @@ public class WLTPInfoClient extends WebServiceGatewaySupport  {
 
         configType.setContextRequest(contextRequest);
 
-        //nu kijken of er iets te halen valt
+        //Request object is filled, now do the web request:
         WebServiceTemplate webServiceTemplate = getWebServiceTemplate();
 
         ConfigV2Response configV2Response;
@@ -91,10 +97,6 @@ public class WLTPInfoClient extends WebServiceGatewaySupport  {
 
 
             response = webServiceTemplate
-//                    .marshalSendAndReceive("https://api.inetpsa.com/applications/moteur-de-configuration-vn/config/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14"
-//                .marshalSendAndReceive("https://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=ffd16c30-c9e9-4a35-8ff0-0a527cdfdf1f"
-//                .marshalSendAndReceive("https://api-basic.groupe-psa.com/applications/moteur-de-configuration-vn/config/v1?client_id=ffd16c30-c9e9-4a35-8ff0-0a527cdfdf1f"
-//                    , configV2 );
                             .marshalSendAndReceive(configV2, new SoapActionCallback("http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"));
 //                            .marshalSendAndReceive(configV2, new SoapActionCallback("http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2Response"));
 //        System.out.println("Version: " + configResponseTypeV2.getVersion());

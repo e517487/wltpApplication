@@ -683,17 +683,17 @@
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="ConfigV2">
-      <wsdlsoap:operation soapAction="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/>
-      <wsdl:input name="ConfigV2Request">
-        <wsdlsoap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="ConfigV2Response">
-        <wsdlsoap:body use="literal"/>
-      </wsdl:output>
-      <wsdl:fault name="ServiceException">
-        <wsdlsoap:fault name="ServiceException" use="literal"/>
-      </wsdl:fault>
-    </wsdl:operation>
+    <wsdlsoap:operation soapAction="http://xml.inetpsa.com/Services/Cfg/Config#ConfigV2"/>
+    <wsdl:input name="ConfigV2Request">
+      <wsdlsoap:body use="literal"/>
+    </wsdl:input>
+    <wsdl:output name="ConfigV2Response">
+      <wsdlsoap:body use="literal"/>
+    </wsdl:output>
+    <wsdl:fault name="ServiceException">
+      <wsdlsoap:fault name="ServiceException" use="literal"/>
+    </wsdl:fault>
+  </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Config">
     <wsdl:port binding="tns:ConfigHttpBinding" name="ConfigHttpPort">
