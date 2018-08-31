@@ -4,6 +4,7 @@ package com.inetpsa.pct00.application.service;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
@@ -18,6 +19,10 @@ import org.springframework.ws.transport.http.HttpComponentsMessageSender;
 public class WLTPInfoConfiguration {
     private static final Logger LOGGER = LoggerFactory.getLogger(WLTPInfoConfiguration.class);
 
+    @Autowired
+    public WLTPInfoConfiguration (){
+
+    }
 
     private String userName = "e517487";
     private String userPassword = "Fdsa123a";
