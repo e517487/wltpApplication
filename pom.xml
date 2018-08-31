@@ -53,20 +53,6 @@
                 <version>0.12.3</version>
                 <executions>
                     <execution>
-                        <id>wsdl-config</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <schemaLanguage>WSDL</schemaLanguage>
-                            <generatePackage>Config.wsdl</generatePackage>
-                            <schemaDirectory>${project.basedir}/src/main/resources/wsdl-config</schemaDirectory>
-                            <schemaIncludes>
-                                <include>Config.wsdl</include>
-                            </schemaIncludes>
-                        </configuration>
-                    </execution>
-                    <execution>
                         <id>wsdl-select</id>
                         <goals>
                             <goal>generate</goal>
@@ -77,6 +63,20 @@
                             <schemaDirectory>${project.basedir}/src/main/resources/wsdl-select</schemaDirectory>
                             <schemaIncludes>
                                 <include>Select.wsdl</include>
+                            </schemaIncludes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>wsdl-config</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <schemaLanguage>WSDL</schemaLanguage>
+                            <generatePackage>Config.wsdl</generatePackage>
+                            <schemaDirectory>${project.basedir}/src/main/resources/wsdl-config</schemaDirectory>
+                            <schemaIncludes>
+                                <include>Config.wsdl</include>
                             </schemaIncludes>
                         </configuration>
                     </execution>

@@ -5,6 +5,7 @@ import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.stereotype.Service;
 import org.springframework.ws.client.core.WebServiceTemplate;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
@@ -84,6 +85,12 @@ public class WLTPInfoConfigClient extends WebServiceGatewaySupport {
     public ConfigV2Response getWltpConfigV2(ConfigV2 configV2) {
         //Request object is filled, now do the web request:
         WebServiceTemplate webServiceTemplate = getWebServiceTemplate();
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setContextPath("Config.wsdl");
+        webServiceTemplate.setMarshaller(marshaller);
+        webServiceTemplate.setUnmarshaller(marshaller);
+
+        webServiceTemplate.afterPropertiesSet();
 
         ConfigV2Response configV2Response;
         Object response = null;

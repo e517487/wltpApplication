@@ -23,6 +23,7 @@ public class WLTPInfoConfiguration {
     private String userPassword = "Fdsa123a";
 
 
+    //TODO: have to do something for the Select.wsdl, but don't know how to make 2 marshallers for the two web services???
     @Bean
     public Jaxb2Marshaller marshaller() {
         Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
@@ -30,6 +31,8 @@ public class WLTPInfoConfiguration {
         // this package must match the package in the <generatePackage> specified in
         // pom.xml
         marshaller.setContextPath("Config.wsdl");
+//        marshaller.setContextPath("Select.wsdl");
+
         return marshaller;
     }
 

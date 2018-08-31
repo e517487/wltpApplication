@@ -812,7 +812,8 @@
   </wsdl:binding>
   <wsdl:service name="Select">
     <wsdl:port binding="tns:SelectHttpBinding" name="SelectHttpPort">
-      <wsdlsoap:address location="http://localhost:8080/cfg00Web/services/Select"/>
+      <wsdlsoap:address location="https://api.inetpsa.com/applications/moteur-de-configuration-vn/select/v1?client_id=748c557e-eb73-4434-b7a8-6e1e704abd14"/>
+      <!--<wsdlsoap:address location="http://localhost:8080/cfg00Web/services/Select"/>-->
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
